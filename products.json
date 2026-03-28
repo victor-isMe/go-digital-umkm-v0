@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1774674269,
+        "name": "Test",
+        "category": "fashion",
+        "price": 20000,
+        "stock": 2,
+        "description": "Deskripsi",
+        "image": "img\/1774674269_baju.jpg"
+    }
+]
