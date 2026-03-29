@@ -53,6 +53,7 @@
             .then(data => {
                 document.getElementById("header").innerHTML = data;
             });
+            
         fetch("template/footer.html")
             .then(res => res.text())
             .then(data => {
