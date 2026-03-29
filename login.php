@@ -35,11 +35,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Login</title>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="login-container">
         <div class="login-box">
@@ -53,10 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input name="password" type="password" required>
 
                 <button type="submit" class="btn-primary">
-                Login
+                    Login
                 </button>
             </form>
         </div>
     </div>
 </body>
+
 </html>

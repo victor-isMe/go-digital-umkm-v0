@@ -23,82 +23,72 @@ if ($_SESSION["role"] !== "umkm") {
 
 <body>
 
-<div id="header"></div>
+    <div id="header"></div>
 
-<form class="form" action="save-product.php" method="POST" enctype="multipart/form-data">
+    <form class="form" action="save-product.php" method="POST" enctype="multipart/form-data">
 
-<h2>Tambah Produk UMKM</h2>
+        <h2>Tambah Produk UMKM</h2>
 
-<label>Nama Produk</label>
+        <label>Nama Produk</label>
 
-<input type="text" name="name" placeholder="Masukkan nama produk" required>
+        <input type="text" name="name" placeholder="Masukkan nama produk" required>
 
-<label>Kategori</label>
+        <label>Kategori</label>
 
-<select name="category">
+        <select name="category">
 
-<option value="makanan">Makanan</option>
+            <option value="makanan">Makanan</option>
 
-<option value="kerajinan">Kerajinan</option>
+            <option value="kerajinan">Kerajinan</option>
 
-<option value="fashion">Fashion</option>
+            <option value="fashion">Fashion</option>
 
-</select>
+        </select>
 
-<label>Harga</label>
+        <label>Harga</label>
 
-<input type="number" name="price" placeholder="Masukkan harga" required>
+        <input type="number" name="price" placeholder="Masukkan harga" required>
 
-<label>Stok</label>
+        <label>Stok</label>
 
-<input type="number" name="stock" placeholder="Masukkan stok" required>
+        <input type="number" name="stock" placeholder="Masukkan stok" required>
 
-<label>Deskripsi</label>
+        <label>Deskripsi</label>
 
-<textarea name="description" placeholder="Deskripsi produk"></textarea>
+        <textarea name="description" placeholder="Deskripsi produk"></textarea>
 
-<label>Upload Gambar</label>
+        <label>Upload Gambar</label>
 
-<input type="file" name="image" accept="img/*" required>
+        <input type="file" name="image" accept="img/*" required>
 
-<button type="submit" class="btn-primary">
+        <button type="submit" class="btn-primary">
 
-Simpan Produk
+            Simpan Produk
 
-</button>
+        </button>
 
-</form>
+    </form>
 
-<div id="footer"></div>
+    <div id="footer"></div>
 
-<script>
+    <script>
+        fetch("template/header.php")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+            });
 
-fetch("template/header.php")
+        fetch("template/footer.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+            });
 
-.then(res=>res.text())
-
-.then(data=>{
-
-document.getElementById("header").innerHTML=data;
-
-});
-
-fetch("template/footer.html")
-
-.then(res=>res.text())
-
-.then(data=>{
-
-document.getElementById("footer").innerHTML=data;
-
-});
-
-function toggleMenu() {
-    const menu = document.getElementById("navMenu");
-    menu.classList.toggle("active");
-}
-
-</script>
+        function toggleMenu() {
+            const menu = document.getElementById("navMenu");
+            menu.classList.toggle("active");
+        }
+    </script>
 
 </body>
 

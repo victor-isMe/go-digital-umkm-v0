@@ -1,34 +1,23 @@
-let jumlah=1;
+let jumlah = 1;
 
-function tambah(){
+function tambah() {
+  jumlah++;
 
-jumlah++;
-
-document.getElementById("jumlah").innerHTML=jumlah;
-
+  document.getElementById("jumlah").innerHTML = jumlah;
 }
 
-function kurang(){
+function kurang() {
+  if (jumlah > 1) {
+    jumlah--;
+  }
 
-if(jumlah>1){
-
-jumlah--;
-
+  document.getElementById("jumlah").innerHTML = jumlah;
 }
 
-document.getElementById("jumlah").innerHTML=jumlah;
+function hitung() {
+  let harga = document.getElementById("harga").value;
 
-}
+  let total = harga * jumlah;
 
-function hitung(){
-
-let harga=
-document.getElementById("harga").value;
-
-let total=
-harga*jumlah;
-
-document.getElementById("total").value=
-total;
-
+  document.getElementById("total").value = total;
 }

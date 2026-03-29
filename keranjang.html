@@ -1,102 +1,105 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Keranjang</title>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<script src="js/script.js"></script>
+    <title>Keranjang</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
 </head>
+
 <body>
-<div id="header"></div>
-<h1>
-Keranjang Belanja
-</h1>
-<table class="cart">
-<tr>
-<th>Produk</th>
-<th>Harga</th>
-<th>Jumlah</th>
-<th>Total</th>
-</tr>
-<tr>
-<td>Rendang</td>
-<td>
-<input id="harga" value="85000">
-</td>
-<td>
-<button onclick="kurang()">-</button>
-<span id="jumlah">
-1
-</span>
-<button onclick="tambah()">+</button>
-</td>
-<td>
-<input id="total">
-</td>
-</tr>
-</table>
-<button onclick="hitung()" class="btn-primary">
-Hitung Total
-</button>
-<div id="footer"></div>
+    <div id="header"></div>
+    <h1>
+        Keranjang Belanja
+    </h1>
+    <table class="cart">
+        <tr>
+            <th>Produk</th>
+            <th>Harga</th>
+            <th>Jumlah</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td>Rendang</td>
+            <td>
+                <input id="harga" value="85000">
+            </td>
+            <td>
+                <button onclick="kurang()">-</button>
+                <span id="jumlah">
+                    1
+                </span>
+                <button onclick="tambah()">+</button>
+            </td>
+            <td>
+                <input id="total">
+            </td>
+        </tr>
+    </table>
+    <button onclick="hitung()" class="btn-primary">
+        Hitung Total
+    </button>
+    <div id="footer"></div>
 
-<div class="cart">
-    <h3>Keranjang</h3>
-    <div id="cart-items"></div>
-    <p>
-    Total :
-    <b>
-    Rp <span id="total">0</span>
-    </b>
-    </p>
-    <button onclick="bukaCheckout()" class="btn-primary">
-    Checkout
-    </button>
-</div>
-
-<div id="checkoutModal" class="modal">
-    <div class="modal-content">
-    <h2>Checkout</h2>
-    <p>
-    Total :
-    <b>
-    Rp <span id="totalCheckout"></span>
-    </b>
-    </p>
-    <input id="nama" placeholder="Nama">
-    <input id="alamat" placeholder="Alamat">
-    <label>
-    <input type="radio" name="pay" value="Transfer Bank">
-    Transfer Bank
-    </label>
-    <label>
-    <input type="radio" name="pay" value="E-Wallet">
-    E Wallet
-    </label>
-    <label>
-    <input type="radio" name="pay" value="COD">
-    COD
-    </label>
-    <button onclick="prosesCheckout()" class="btn-primary">
-    Bayar
-    </button>
-    <button onclick="tutupCheckout()">
-    Batal
-    </button>
+    <div class="cart">
+        <h3>Keranjang</h3>
+        <div id="cart-items"></div>
+        <p>
+            Total :
+            <b>
+                Rp <span id="total">0</span>
+            </b>
+        </p>
+        <button onclick="bukaCheckout()" class="btn-primary">
+            Checkout
+        </button>
     </div>
-</div>
 
-<script>
-fetch("template/header.html")
-.then(res=>res.text())
-.then(data=>{
-document.getElementById("header").innerHTML=data;
-});
-fetch("template/footer.html")
-.then(res=>res.text())
-.then(data=>{
-document.getElementById("footer").innerHTML=data;
-});
-</script>
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <h2>Checkout</h2>
+            <p>
+                Total :
+                <b>
+                    Rp <span id="totalCheckout"></span>
+                </b>
+            </p>
+            <input id="nama" placeholder="Nama">
+            <input id="alamat" placeholder="Alamat">
+            <label>
+                <input type="radio" name="pay" value="Transfer Bank">
+                Transfer Bank
+            </label>
+            <label>
+                <input type="radio" name="pay" value="E-Wallet">
+                E Wallet
+            </label>
+            <label>
+                <input type="radio" name="pay" value="COD">
+                COD
+            </label>
+            <button onclick="prosesCheckout()" class="btn-primary">
+                Bayar
+            </button>
+            <button onclick="tutupCheckout()">
+                Batal
+            </button>
+        </div>
+    </div>
+
+    <script>
+        fetch("template/header.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+            });
+        fetch("template/footer.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+            });
+    </script>
 </body>
+
 </html>
