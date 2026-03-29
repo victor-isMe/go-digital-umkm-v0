@@ -418,14 +418,16 @@ if (file_exists($file)) {
                 <p>Rp 180000</p><button onclick="tambahKeranjang('Sepatu',180000)" class="btn-primary">Beli</button>
             </div>
 
-            <?php foreach ($products as $product): ?>
-                <div class="card <?= htmlspecialchars($product['category']); ?>">
+            <!-- rencana fitur load more -->
+            <?php foreach ($products as $index => $product): ?>
+                <div class="card <?= htmlspecialchars($product['category']); ?>" style="<?= $index >= 6 ? 'display: none;' : '' ?>">
                     <img src="<?= htmlspecialchars($product['image']); ?>" alt="Gambar Produk">
                     <h3><?= htmlspecialchars($product['name']); ?></h3>
                     <p>Rp <?= number_format($product['price'], 0, ',', '.'); ?></p>
                     <button onclick="tambahKeranjang('<?= htmlspecialchars($product['name'], ENT_QUOTES); ?>',<?= (int)$product['price']; ?>)" class="btn-primary">Beli</button>
                 </div>
             <?php endforeach; ?>
+            <button id="loadMoreBtn">Load More</button>
         </div>
 
         <div class="cart-float">
@@ -483,6 +485,24 @@ if (file_exists($file)) {
     <script>
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
         updateCart();
+
+        let currentItems = 6;
+        const item = document.querySelectorAll('.card');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+        loadMoreBtn.addEventListener('click', () => {
+            for (let i = currentItems; i < currentItems + 3; i++) {
+                if (items[i]) {
+                    items[i].style.display = 'block';
+                }
+            }
+
+            currentItems += 3;
+
+            if (currentItems >= items.length) {
+                loadMoreBtn.style.display = 'none';
+            }
+        });
 
         function tambahKeranjang(nama, harga) {
             let found = false;
