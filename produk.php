@@ -657,20 +657,20 @@ if (file_exists($file)) {
             });
 
         }
-        fetch("template/header.php")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById(
-                    "header"
-                ).innerHTML = data;
-            });
-        fetch("template/footer.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById(
-                    "footer"
-                ).innerHTML = data;
-            });
+        // fetch("template/header.php")
+        //     .then(res => res.text())
+        //     .then(data => {
+        //         document.getElementById(
+        //             "header"
+        //         ).innerHTML = data;
+        //     });
+        // fetch("template/footer.html")
+        //     .then(res => res.text())
+        //     .then(data => {
+        //         document.getElementById(
+        //             "footer"
+        //         ).innerHTML = data;
+        //     });
 
         function toggleMenu() {
             const menu = document.getElementById("navMenu");

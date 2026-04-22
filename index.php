@@ -1,70 +1,51 @@
+<?php
+session_start();
+
+$page = $_GET['page'] ?? 'home';
+
+$allowed_pages = ['home', 'produk', 'form', 'login'];
+
+if (!in_array($page, $allowed_pages)) {
+    $page = 'home';
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Go Digital UMKM</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="header"></div>
-    <section class="hero">
-        <h1>
-            Dukung UMKM Lokal
-            <br>
-            <span>
-                Wujudkan Ekonomi Berkelanjutan
-            </span>
-        </h1>
-        <p>
-            Platform marketplace produk UMKM Indonesia
-        </p>
-        <div class="hero-btn">
-            <a href="produk.php" class="btn-primary">
-                Jelajahi Produk
-            </a>
-            <a href="login.php" class="btn-secondary">
-                Masuk Sekarang
-            </a>
-        </div>
-    </section>
-    <section class="about">
-        <h2>
-            Go Digital UMKM
-        </h2>
-        <p>
-            Selamat datang di Website UMKM Nusantara, pusat produk lokal berkualitas yang dibuat langsung oleh
-            masyarakat desa. Di sini Anda dapat menemukan berbagai pilihan makanan, minuman segar, kerajinan tangan
-            unik, serta produk fashion dengan harga terjangkau dan kualitas terbaik.
+    <div>
+        <?php include 'template/header.php'; ?>
+    </div>
 
-            Kami percaya bahwa UMKM adalah tulang punggung ekonomi desa. Oleh karena itu, website ini hadir sebagai
-            wadah digital untuk membantu pelaku UMKM memasarkan produknya secara lebih luas dan memudahkan masyarakat
-            dalam menemukan produk lokal unggulan.
+    <div>
+        <?php include "$page.php"; ?>
+    </div>
 
-            Mari dukung UMKM lokal dengan bangga menggunakan produk dalam negeri.
-
-        </p>
-    </section>
-    <div id="footer"></div>
-    <script>
-        fetch("template/header.php")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-            });
+    <div id="footer">
+        <?php include 'template/footer.php'; ?>
+    </div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- <script>
+        // fetch("template/header.php")
+        //     .then(res => res.text())
+        //     .then(data => {
+        //         document.getElementById("header").innerHTML = data;
+        //     });
             
-        fetch("template/footer.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("footer").innerHTML = data;
-            });
-
-        function toggleMenu() {
-            const menu = document.getElementById("navMenu");
-            menu.classList.toggle("active");
-        }
-    </script>
+        // fetch("template/footer.html")
+        //     .then(res => res.text())
+        //     .then(data => {
+        //         document.getElementById("footer").innerHTML = data;
+        //     });
+    </script> -->
 </body>
 
 </html>

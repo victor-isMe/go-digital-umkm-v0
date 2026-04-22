@@ -9,15 +9,15 @@ body {
     color: #1e293b;
 }
 
-#header {
+/* #header {
     position: sticky;
     top: 0;
     z-index: 9999;
-}
+} */
 
 /* NAVBAR */
 
-.navbar {
+/* .navbar {
 
     display: flex;
     justify-content: space-between;
@@ -64,7 +64,7 @@ body {
     display: none;
     font-size: 24px;
     cursor: pointer;
-}
+} */
 
 /* HERO */
 
@@ -416,7 +416,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .navbar ul {
+    /* .navbar ul {
         position: absolute;
         top: 70px;
         right: 0;
@@ -434,7 +434,7 @@ footer {
 
     .hamburger {
         display: block;
-    }
+    } */
 
     .form {
         width: 400px;
