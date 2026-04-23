@@ -1,4 +1,4 @@
-    <section class="hero">
+    <section class="hero min-vh-100 align-items-center text-center">
         <h1>
             Dukung UMKM Lokal
             <br>
@@ -18,7 +18,7 @@
             </a>
         </div>
     </section>
-    <section class="about">
+    <section class="about min-vh-100 align-items-center text-center">
         <h2>
             Go Digital UMKM
         </h2>

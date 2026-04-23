@@ -185,28 +185,12 @@ if (file_exists($file)) {
 
 <body>
     <?php include 'template/header.php'; ?>
+    
+    <?php include "$page.php"; ?>
 
-    <div>
-        <?php include "$page.php"; ?>
-    </div>
-
-    <div id="footer">
-        <?php include 'template/footer.php'; ?>
-    </div>
+    <?php include 'template/footer.php'; ?>
+    
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <!-- <script>
-        // fetch("template/header.php")
-        //     .then(res => res.text())
-        //     .then(data => {
-        //         document.getElementById("header").innerHTML = data;
-        //     });
-            
-        // fetch("template/footer.html")
-        //     .then(res => res.text())
-        //     .then(data => {
-        //         document.getElementById("footer").innerHTML = data;
-        //     });
-    </script> -->
 </body>
 
 </html>
