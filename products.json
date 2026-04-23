@@ -7,5 +7,14 @@
         "stock": 2,
         "description": "Deskripsi",
         "image": "img\/1774674269_baju.jpg"
+    },
+    {
+        "id": 1776905518,
+        "name": "Tes 2",
+        "category": "makanan",
+        "price": 56000,
+        "stock": 9,
+        "description": "Coba-coba saja.",
+        "image": "img\/1776905518_1770195863665.png"
     }
 ]
