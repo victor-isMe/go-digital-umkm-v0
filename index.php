@@ -8,6 +8,18 @@ $allowed_pages = ['home', 'produk', 'form', 'login'];
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';
 }
+
+if ($page == 'form') {
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php?page=login");
+        exit;
+    }
+    if ($_SESSION['role'] !== 'umkm') {
+        echo "Akses ditolak!";
+        header("Location: index.php?page=home");
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +33,7 @@ if (!in_array($page, $allowed_pages)) {
 </head>
 
 <body>
-    <div>
-        <?php include 'template/header.php'; ?>
-    </div>
+    <?php include 'template/header.php'; ?>
 
     <div>
         <?php include "$page.php"; ?>

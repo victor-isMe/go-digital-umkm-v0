@@ -10,10 +10,10 @@
             Platform marketplace produk UMKM Indonesia
         </p>
         <div class="hero-btn">
-            <a href="produk.php" class="btn-primary">
+            <a href="produk.php" class="btn btn-primary btn-lg">
                 Jelajahi Produk
             </a>
-            <a href="login.php" class="btn-secondary">
+            <a href="login.php" class="btn btn-outline-secondary btn-lg">
                 Masuk Sekarang
             </a>
         </div>

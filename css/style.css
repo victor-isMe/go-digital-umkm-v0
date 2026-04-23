@@ -9,63 +9,6 @@ body {
     color: #1e293b;
 }
 
-/* #header {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-} */
-
-/* NAVBAR */
-
-/* .navbar {
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 5px 20px;
-
-    background: white;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-.navbar ul {
-
-    display: flex;
-
-    gap: 40px;
-
-    list-style: none;
-
-}
-
-.navbar a {
-
-    text-decoration: none;
-
-    color: #334155;
-
-    font-weight: 500;
-
-}
-
-.logo {
-
-    color: #22c55e;
-
-    font-size: 22px;
-
-    font-weight: 600;
-
-}
-
-.hamburger {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-} */
-
 /* HERO */
 
 .hero {
@@ -109,47 +52,21 @@ body {
 /* BUTTON */
 
 .btn-primary {
-
-    text-decoration: none;
-
-    background: #16a34a;
-
-    color: white;
-
-    border: none;
-
-    padding: 14px 30px;
-
-    border-radius: 12px;
-
-    font-weight: 500;
-
-    cursor: pointer;
-
-    transition: .3s;
-
+    background-color: #16a34a;
+    border-color: #16a34a;
 }
-
 .btn-primary:hover {
-
     background: #15803d;
-
+    border-color: #15803d;
 }
 
-.btn-secondary {
-
-    border: 2px solid #16a34a;
-
-    padding: 12px 25px;
-
-    border-radius: 12px;
-
+.btn-outline-secondary {
+    border-color:#16a34a;
     color: #16a34a;
-
-    text-decoration: none;
-
-    margin-left: 10px;
-
+}
+.btn-outline-secondary:hover{
+    background-color: transparent;
+    color: #16a34a;
 }
 
 /* PRODUCT PAGE */
@@ -416,26 +333,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* .navbar ul {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: white;
-        width: 200px;
-        padding: 20px;
-        flex-direction: column;
-        align-items: center;
-        display: none;
-    }
-
-    .navbar ul.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: block;
-    } */
-
     .form {
         width: 400px;
     }

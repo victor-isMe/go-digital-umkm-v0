@@ -1,95 +1,43 @@
-<?php
-session_start();
+<form class="form" action="save-product.php" method="POST" enctype="multipart/form-data">
 
-if (!isset($_SESSION["login"])) {
-    header("Location: login.php");
-    exit;
-}
+    <h2>Tambah Produk UMKM</h2>
 
-if ($_SESSION["role"] !== "umkm") {
-    echo "Akses ditolak!";
-    exit;
-}
-?>
+    <label>Nama Produk</label>
 
-<!DOCTYPE html>
-<html>
+    <input type="text" name="name" placeholder="Masukkan nama produk" required>
 
-<head>
-    <title>Form Produk</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
+    <label>Kategori</label>
 
-<body>
+    <select name="category">
 
-    <div id="header"></div>
+        <option value="makanan">Makanan</option>
 
-    <form class="form" action="save-product.php" method="POST" enctype="multipart/form-data">
+        <option value="kerajinan">Kerajinan</option>
 
-        <h2>Tambah Produk UMKM</h2>
+        <option value="fashion">Fashion</option>
 
-        <label>Nama Produk</label>
+    </select>
 
-        <input type="text" name="name" placeholder="Masukkan nama produk" required>
+    <label>Harga</label>
 
-        <label>Kategori</label>
+    <input type="number" name="price" placeholder="Masukkan harga" required>
 
-        <select name="category">
+    <label>Stok</label>
 
-            <option value="makanan">Makanan</option>
+    <input type="number" name="stock" placeholder="Masukkan stok" required>
 
-            <option value="kerajinan">Kerajinan</option>
+    <label>Deskripsi</label>
 
-            <option value="fashion">Fashion</option>
+    <textarea name="description" placeholder="Deskripsi produk"></textarea>
 
-        </select>
+    <label>Upload Gambar</label>
 
-        <label>Harga</label>
+    <input type="file" name="image" accept="img/*" required>
 
-        <input type="number" name="price" placeholder="Masukkan harga" required>
+    <button type="submit" class="btn btn-primary">
 
-        <label>Stok</label>
+        Simpan Produk
 
-        <input type="number" name="stock" placeholder="Masukkan stok" required>
+    </button>
 
-        <label>Deskripsi</label>
-
-        <textarea name="description" placeholder="Deskripsi produk"></textarea>
-
-        <label>Upload Gambar</label>
-
-        <input type="file" name="image" accept="img/*" required>
-
-        <button type="submit" class="btn-primary">
-
-            Simpan Produk
-
-        </button>
-
-    </form>
-
-    <div id="footer"></div>
-
-    <script>
-        fetch("template/header.php")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-            });
-
-        fetch("template/footer.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("footer").innerHTML = data;
-            });
-
-        function toggleMenu() {
-            const menu = document.getElementById("navMenu");
-            menu.classList.toggle("active");
-        }
-    </script>
-
-</body>
-
-</html>
+</form>

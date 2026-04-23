@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+<nav class="navbar sticky-top shadow navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a href="index.php" class="navbar-brand">Go Digital UMKM</a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,7 +6,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav justify-content-center text-center ms-auto">
                 <li class="nav-item"><a class="nav-link" href="index.php?page=home">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php?page=produk">Products</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php?page=form">Add Product</a></li>
