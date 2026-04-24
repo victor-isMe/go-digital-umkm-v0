@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'config/database.php';
 
 $page = $_GET['page'] ?? 'home';
 
@@ -21,12 +22,8 @@ if ($page == 'form') {
     }
 }
 
-$file = "products.json";
-
-if (file_exists($file)) {
-    $products = json_decode(file_get_contents($file), true);
-} else {
-    $products = [];
+if ($page == 'produk') {
+    $result = mysqli_query($koneksi, "SELECT * FROM produk");
 }
 ?>
 
@@ -189,7 +186,7 @@ if (file_exists($file)) {
     <?php include "$page.php"; ?>
 
     <?php include 'template/footer.php'; ?>
-    
+
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
