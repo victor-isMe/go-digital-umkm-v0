@@ -16,43 +16,6 @@ if ($page == 'login') {
         exit;
     }
 
-    $found = false;
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-
-        $users = [
-            [
-                "email" => "admin@gmail.com",
-                "password" => "admin123",
-                "role" => "umkm"
-            ],
-            [
-                "email" => "user@gmail.com",
-                "password" => "user123",
-                "role" => "customer"
-            ]
-        ];
-        
-        foreach ($users as $user) {
-            if ($email === $user["email"] && $password === $user["password"]) {
-                $found = true;
-                break;
-            }
-        }
-    }
-
-    if ($found) {
-        $_SESSION["login"] = true;
-        $_SESSION["email"] = $user["email"];
-        $_SESSION["role"] = $user["role"];
-
-        header("Location: index.php?page=home");
-        exit;
-    }else {
-        $error = "Login gagal!";
-    }
 }
 
 if ($page == 'form') {
@@ -229,6 +192,22 @@ if ($page == 'produk') {
     <?php include 'template/header.php'; ?>
     
     <?php include "$page.php"; ?>
+
+    <?php if (isset($_GET['success'])): ?>
+        <div id="toast" class="alert alert-success fixed-bottom text-center">
+            Login berhasil!
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded",
+                function() {
+                    const toastEl = document.getElementById('toast');
+                    const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+                    toast.show();
+                }
+            );
+        </script>
+    <?php endif; ?>
 
     <?php include 'template/footer.php'; ?>
 
