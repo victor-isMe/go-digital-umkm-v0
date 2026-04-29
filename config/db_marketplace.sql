@@ -86,11 +86,7 @@ INSERT INTO `produk` (`id_produk`, `nama`, `kategori`, `harga`, `stok`, `deskrip
 (42, 'Sandal Wanita', 'fashion', 70000, 10, 'Deskripsi Produk', 'img/sandalw.jpg'),
 (43, 'Sandal Pria', 'fashion', 75000, 10, 'Deskripsi Produk', 'img/sandalp.jpg'),
 (44, 'Sandal Anak', 'fashion', 50000, 10, 'Deskripsi Produk', 'img/sandala.jpg'),
-(45, 'Sepatu', 'fashion', 180000, 10, 'Deskripsi Produk', 'img/sepatu.jpg'),
-(46, 'Testing', 'kerajinan', 99999, 12, 'Deskripsi Produk', 'img/1777004732_Donat Kentang.png'),
-(47, 'Testing', 'kerajinan', 99999, 12, 'Deskripsi Produk', 'img/1777004837_Donat Kentang.png'),
-(48, 'test', 'fashion', 100000, 13, 'TEST', 'img/1777004915_Apem.png'),
-(49, 'test 3', 'makanan', 12000, 10, 'bla', 'img/1777022534_Putu Ayu.png');
+(45, 'Sepatu', 'fashion', 180000, 10, 'Deskripsi Produk', 'img/sepatu.jpg');
 
 --
 -- Indexes for dumped tables
