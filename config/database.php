@@ -13,10 +13,18 @@ if (mysqli_num_rows($checkDB) == 0) {
 
     mysqli_select_db($koneksi, $db);
     
-    $sql = file_get_contents(__DIR__ . "/database.sql");
+    $sql = file_get_contents(__DIR__ . "/db_marketplace.sql");
 
     if ($sql) {
-        mysqli_multi_query($koneksi, $sql);
+        if (mysqli_multi_query($koneksi, $sql)) {
+            do {
+                if ($result = mysqli_store_result($koneksi)) {
+                    mysqli_free_result($result);
+                }
+            } while (mysqli_next_result($koneksi));
+        } else {
+            echo "Error: " . mysqli_error($koneksi);
+        }
     }
 } else {
     mysqli_select_db($koneksi, $db);
