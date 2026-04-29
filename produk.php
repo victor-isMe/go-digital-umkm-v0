@@ -18,17 +18,20 @@
             </button>
         </div>
 
-        <div class="products">
+        <div class="row row-cols-2 row-cols-md-3 g-3">
             <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                <div class="card <?= $row['kategori']; ?>">
-                    <img src="<?= $row['foto']; ?>" alt="<?= $row['nama']; ?>">
 
-                    <h3><?= $row['nama']; ?></h3>
-                    <p>Rp <?= number_format($row['harga'], 0, ',','.'); ?></p>
+                <div class="col <?= $row['kategori']; ?>">
+                    <div class="card bg-white p-3 rounded-4 shadow-sm border-0 card-hover">
+                        <img class="w-100 rounded-3 mb-2" src="<?= $row['foto']; ?>" alt="<?= $row['nama']; ?>">
 
-                    <button onclick="tambahKeranjang('<?= $row['nama']; ?>', <?= $row['harga']; ?>)" class="btn btn-primary">
-                        Beli
-                    </button>
+                        <h6 class="mt-2 mb-2"><?= $row['nama']; ?></h6>
+                        <p class="text-success fw-semibold mb-0">Rp <?= number_format($row['harga'], 0, ',','.'); ?></p>
+
+                        <button onclick="tambahKeranjang('<?= $row['nama']; ?>', <?= $row['harga']; ?>)" class="btn btn-primary">
+                            Beli
+                        </button>
+                    </div>
                 </div>
 
             <?php endwhile; ?>
@@ -243,17 +246,11 @@
 
         function filterProduk(kategori) {
             let produk =
-                document.querySelectorAll(".card");
+                document.querySelectorAll(".col");
             produk.forEach(item => {
-                if (
-                    kategori == "all"
-                ) {
+                if (kategori == "all") {
                     item.style.display = "block";
-                } else if (
-                    item.classList.contains(
-                        kategori
-                    )
-                ) {
+                } else if (item.classList.contains(kategori)) {
                     item.style.display = "block";
                 } else {
                     item.style.display = "none";

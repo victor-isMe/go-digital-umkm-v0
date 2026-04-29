@@ -1,6 +1,6 @@
 <?php
-session_start();
 require_once 'config/database.php';
+session_start();
 
 $page = $_GET['page'] ?? 'home';
 
@@ -74,12 +74,6 @@ if ($page == 'produk') {
             color: white;
         }
 
-        .products {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
         .cart-float {
             position: fixed;
             bottom: 40px;
@@ -150,10 +144,6 @@ if ($page == 'produk') {
         }
 
         @media (min-width: 768px) {
-            .products {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
             .sidebar {
                 width: 100%;
             }
@@ -169,10 +159,6 @@ if ($page == 'produk') {
                 width: 100%;
                 position: sticky;
                 top: 100px;
-            }
-
-            .products {
-                grid-template-columns: repeat(3, 1fr);
             }
 
             .cart {

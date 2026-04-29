@@ -1,7 +1,10 @@
 <div class="login-container">
+
     <div class="login-box">
+
         <h2>Selamat Datang</h2>
         <p>Masuk ke akun anda</p>
+
         <form class="login-form" method="POST" action="proses-login.php">
             <?php if (isset($_GET['error'])): ?>
                 <div id="toast" class="alert alert-danger fixed-bottom text-center">
@@ -17,7 +20,8 @@
                         }
                     );
                 </script>
-            <?php endif; ?>            
+            <?php endif; ?>   
+
             <label>Email</label>
             <input name="email" type="email" placeholder="Email" required>
 
@@ -28,5 +32,7 @@
                 Login
             </button>
         </form>
+        
     </div>
+
 </div>
