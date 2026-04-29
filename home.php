@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Go Digital UMKM</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <div id="header"></div>
-    <section class="hero">
+    <section class="hero min-vh-100 align-items-center text-center">
         <h1>
             Dukung UMKM Lokal
             <br>
@@ -21,15 +10,15 @@
             Platform marketplace produk UMKM Indonesia
         </p>
         <div class="hero-btn">
-            <a href="produk.php" class="btn-primary">
+            <a href="index.php?page=produk" class="btn btn-primary btn-lg">
                 Jelajahi Produk
             </a>
-            <a href="login.php" class="btn-secondary">
+            <a href="index.php?page=login" class="btn btn-outline-secondary btn-lg">
                 Masuk Sekarang
             </a>
         </div>
     </section>
-    <section class="about">
+    <section class="about min-vh-100 align-items-center text-center">
         <h2>
             Go Digital UMKM
         </h2>
@@ -46,25 +35,3 @@
 
         </p>
     </section>
-    <div id="footer"></div>
-    <script>
-        fetch("template/header.php")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-            });
-            
-        fetch("template/footer.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("footer").innerHTML = data;
-            });
-
-        function toggleMenu() {
-            const menu = document.getElementById("navMenu");
-            menu.classList.toggle("active");
-        }
-    </script>
-</body>
-
-</html>
