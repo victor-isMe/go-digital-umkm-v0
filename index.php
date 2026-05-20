@@ -4,7 +4,7 @@ session_start();
 
 $page = $_GET['page'] ?? 'home';
 
-$allowed_pages = ['home', 'produk', 'form', 'login'];
+$allowed_pages = ['home', 'produk', 'form', 'login', 'products-admin'];
 
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';
@@ -30,7 +30,9 @@ if ($page == 'form') {
     }
 }
 
-if ($page == 'produk') {
+// if ($page == 'edit-produk.php?id=$id')
+
+if ($page == 'produk' || $page = 'products-admin') {
     $result = mysqli_query($koneksi, "SELECT * FROM produk");
 }
 ?>
