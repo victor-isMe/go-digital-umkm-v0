@@ -1,4 +1,4 @@
-    <h1 class="title">
+    <h1 class="text-center mt-4 fs-2">
         Produk UMKM Kami
     </h1>
     <div class="product-container">

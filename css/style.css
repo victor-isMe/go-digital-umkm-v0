@@ -54,28 +54,6 @@ body {
     color: #16a34a;
 }
 
-/* PRODUCT PAGE */
-
-.title {
-
-    text-align: center;
-
-    margin-top: 40px;
-
-    font-size: 32px;
-
-}
-
-.product-container {
-
-    display: flex;
-
-    gap: 40px;
-
-    padding: 50px 80px;
-
-}
-
 /* SIDEBAR */
 
 .sidebar {
