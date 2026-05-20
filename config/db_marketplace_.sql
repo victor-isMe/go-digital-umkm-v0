@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Bulan Mei 2026 pada 04.56
+-- Waktu pembuatan: 20 Bulan Mei 2026 pada 16.03
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -24,6 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `admin`
+--
+
+CREATE TABLE `admin` (
+  `id_admin` int(2) NOT NULL,
+  `nama_admin` varchar(100) DEFAULT NULL,
+  `email_admin` varchar(100) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `detail_pesanan`
+--
+
+CREATE TABLE `detail_pesanan` (
+  `id_detail` int(255) NOT NULL,
+  `id_pesanan` int(255) DEFAULT NULL,
+  `id_produk` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `kategori`
 --
 
@@ -40,6 +65,47 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 ('1', 'makanan'),
 ('2', 'kerajinan'),
 ('3', 'fashion');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pembeli`
+--
+
+CREATE TABLE `pembeli` (
+  `id_pembeli` int(255) NOT NULL,
+  `nama_pembeli` varchar(100) DEFAULT NULL,
+  `alamat_pembeli` varchar(100) DEFAULT NULL,
+  `email_pembeli` varchar(100) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `penjual`
+--
+
+CREATE TABLE `penjual` (
+  `id_penjual` int(100) NOT NULL,
+  `nama_penjual` varchar(100) DEFAULT NULL,
+  `alamat_penjual` varchar(100) DEFAULT NULL,
+  `email_penjual` varchar(100) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pesanan`
+--
+
+CREATE TABLE `pesanan` (
+  `id_pesanan` int(255) NOT NULL,
+  `nama_pemesan` varchar(100) DEFAULT NULL,
+  `alamat_pemesan` varchar(100) DEFAULT NULL,
+  `metode_bayar` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -107,17 +173,48 @@ INSERT INTO `produk` (`id_produk`, `nama`, `kategori`, `harga`, `stok`, `deskrip
 (42, 'Sandal Wanita', 'fashion', 70000, 10, 'Deskripsi Produk', 'img/sandalw.jpg', '3'),
 (43, 'Sandal Pria', 'fashion', 75000, 10, 'Deskripsi Produk', 'img/sandalp.jpg', '3'),
 (44, 'Sandal Anak', 'fashion', 50000, 10, 'Deskripsi Produk', 'img/sandala.jpg', '3'),
-(45, 'Sepatu', 'fashion', 180000, 10, 'Deskripsi Produk', 'img/sepatu.jpg', '3');
+(45, 'Sepatu', 'fashion', 180000, 10, 'Deskripsi Produk', 'img/sepatu.jpg', '3'),
+(51, 'PRODUK TERLARANG', 'makanan', 19000000, 1, 'Deskripsi produk saya', 'img/1779269813_air.jpg', '1');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indeks untuk tabel `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indeks untuk tabel `detail_pesanan`
+--
+ALTER TABLE `detail_pesanan`
+  ADD PRIMARY KEY (`id_detail`);
+
+--
 -- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
+
+--
+-- Indeks untuk tabel `pembeli`
+--
+ALTER TABLE `pembeli`
+  ADD PRIMARY KEY (`id_pembeli`);
+
+--
+-- Indeks untuk tabel `penjual`
+--
+ALTER TABLE `penjual`
+  ADD PRIMARY KEY (`id_penjual`);
+
+--
+-- Indeks untuk tabel `pesanan`
+--
+ALTER TABLE `pesanan`
+  ADD PRIMARY KEY (`id_pesanan`);
 
 --
 -- Indeks untuk tabel `produk`
@@ -131,10 +228,40 @@ ALTER TABLE `produk`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(2) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `detail_pesanan`
+--
+ALTER TABLE `detail_pesanan`
+  MODIFY `id_detail` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pembeli`
+--
+ALTER TABLE `pembeli`
+  MODIFY `id_pembeli` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `penjual`
+--
+ALTER TABLE `penjual`
+  MODIFY `id_penjual` int(100) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pesanan`
+--
+ALTER TABLE `pesanan`
+  MODIFY `id_pesanan` int(255) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

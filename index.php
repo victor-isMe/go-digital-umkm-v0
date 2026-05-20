@@ -30,10 +30,16 @@ if ($page == 'form') {
     }
 }
 
-// if ($page == 'edit-produk.php?id=$id')
-
-if ($page == 'produk' || $page = 'products-admin') {
+if ($page == 'produk') {
     $result = mysqli_query($koneksi, "SELECT * FROM produk");
+}
+if ($page == 'products-admin') {
+    $result = mysqli_query($koneksi, "SELECT * FROM produk");
+}
+if (isset($_GET['hapus'])) {
+    $id = $_GET['hapus'];
+    mysqli_query($koneksi, "DELETE FROM produk WHERE id_produk='$id'");
+    echo "<script>location='index.php?page=products-admin'</script>";
 }
 ?>
 

@@ -22,11 +22,3 @@
 
     <?php endwhile; ?>
 </table>
-
-<?php 
-if (isset($_GET['hapus'])) {
-    $id = $_GET['hapus'];
-    mysqli_query($koneksi, "DELETE FROM produk WHERE id='$id'");
-    echo "<script>location='index.php'</script>";
-}
-?>
