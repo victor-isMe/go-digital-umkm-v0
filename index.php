@@ -4,7 +4,7 @@ session_start();
 
 $page = $_GET['page'] ?? 'home';
 
-$allowed_pages = ['home', 'produk', 'form', 'login', 'products-admin'];
+$allowed_pages = ['home', 'produk', 'form', 'login', 'products-admin', 'register'];
 
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';
