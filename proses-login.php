@@ -1,40 +1,40 @@
 <?php
     session_start();
-
-    $found = false;
+    require_once 'config/database.php';
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST["email"];
-        $password = $_POST["password"];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-        $users = [
-            [
-                "email" => "admin@gmail.com",
-                "password" => "admin123",
-                "role" => "umkm"
-            ],
-            [
-                "email" => "user@gmail.com",
-                "password" => "user123",
-                "role" => "customer"
-            ]
-        ];
-        
-        foreach ($users as $user) {
-            if ($email === $user["email"] && $password === $user["password"]) {
-                $found = true;
-                break;
-            }
+        $queryPembeli = mysqli_query($koneksi, "SELECT * FROM pembeli WHERE email_pembeli='$email' AND password='$password'");
+
+        if (mysqli_num_rows($queryPembeli) > 0) {
+            $data = mysqli_fetch_assoc($queryPembeli);
+
+            $_SESSION["login"] = true;
+            $_SESSION["email"] = $data["email_pembeli"];
+            $_SESSION["role"] = "pembeli";
+            $_SESSION["id"] = $data["id_pembeli"];
+
+            header("Location: index.php?page=home&success=1");
+            exit;
         }
-    }
 
-    if ($found) {
-        $_SESSION["login"] = true;
-        $_SESSION["email"] = $user["email"];
-        $_SESSION["role"] = $user["role"];
+        $queryPenjual = mysqli_query($koneksi, "SELECT * FROM penjual WHERE email_penjual='$email' AND password='$password'");
 
-        header("Location: index.php?page=home&success=1");
-        exit;
-    }else {
+        if (mysqli_num_rows($queryPenjual) > 0) {
+            $data = mysqli_fetch_assoc($queryPenjual);
+
+            $_SESSION["login"] = true;
+            $_SESSION["email"] = $data["email_penjual"];
+            $_SESSION["role"] = "penjual";
+            $_SESSION["id"] = $data["id_penjual"];
+            $_SESSION["toko"] = $data["nama_toko"];
+
+            header("Location: index.php?page=home&success=1");
+            exit;
+        }
+
         header("Location: index.php?page=login&error=1");
+        exit;
     }
