@@ -1,5 +1,5 @@
     <h1 class="text-center mt-4 fs-2">
-        Produk UMKM Kami
+        Produk UMKM
     </h1>
     <div class="product-container">
         <div class="sidebar">
@@ -26,7 +26,7 @@
                         <img class="w-100 rounded-3 mb-2" src="<?= $row['foto']; ?>" alt="<?= $row['nama']; ?>">
 
                         <h6 class="mt-2 mb-2"><?= $row['nama']; ?></h6>
-                        <p class="text-success fw-semibold mb-0">Rp <?= number_format($row['harga'], 0, ',','.'); ?></p>
+                        <p class="text-primary fw-semibold mb-0">Rp <?= number_format($row['harga'], 0, ',','.'); ?></p>
 
                         <button onclick="tambahKeranjang('<?= $row['nama']; ?>', <?= $row['harga']; ?>)" class="btn btn-primary">
                             Beli

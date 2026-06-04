@@ -7,9 +7,6 @@
             <li class="nav-item">
                 <a href="index.php?page=produk" class="nav-link px-2 text-body-secondary">Products</a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link px-2 text-body-secondary">Contact</a>
-            </li>
         </ul>
         <p class="text-center text-body-secondary">
             © <?php echo date('Y'); ?> Go Digital UMKM
