@@ -22,6 +22,24 @@
                 </script>
             <?php endif; ?>   
 
+            <!-- UJI COBA -->
+            <?php if (isset($_GET['expired'])): ?>
+                <div id="toast" class="alert alert-warning fixed-bottom text-center">
+                    Session berakhir, silahkan login ulang!
+                </div>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded",
+                        function() {
+                            const toastEl = document.getElementById('toast');
+                            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+                            toast.show();
+                        }
+                    );
+                </script>
+            <?php endif; ?>   
+            <!-- UJI COBA -->
+
             <label>Email</label>
             <input name="email" type="email" placeholder="Email" required>
 

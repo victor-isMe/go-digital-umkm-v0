@@ -14,40 +14,40 @@
             <br><br>
 
             <div id="formPembeli">
-                <label for="nama">Nama</label>
-                <input type="text" name="nama" required>
+                <label for="nama">Nama</label><br>
+                <input type="text" name="nama" required><br>
 
-                <label for="alamat">Alamat</label>
-                <input type="text" name="alamat" required>
+                <label for="alamat">Alamat</label><br>
+                <input type="text" name="alamat" required><br>
 
-                <label for="nomor">No. Telp</label>
-                <input type="tel" name="phone" required>
+                <label for="nomor">No. Telp</label><br>
+                <input type="tel" name="phone" required><br>
 
-                <label for="email">Email</label>
-                <input type="email" name="email" required>
+                <label for="email">Email</label><br>
+                <input type="email" name="email" required><br>
 
-                <label for="password">Password</label>
-                <input type="password" name="password" required>
+                <label for="password">Password</label><br>
+                <input type="password" name="password" required><br>
             </div>
 
             <div id="formPenjual" style="display: none;">
-                <label for="nama">Nama</label>
-                <input type="text" name="nama" required>
+                <label for="nama">Nama</label><br>
+                <input type="text" name="nama" required><br>
 
-                <label for="alamat">Alamat</label>
-                <input type="text" name="alamat" required>
+                <label for="alamat">Alamat</label><br>
+                <input type="text" name="alamat" required><br>
 
-                <label for="nomor">No. Telp</label>
-                <input type="tel" name="phone" required>
+                <label for="nomor">No. Telp</label><br>
+                <input type="tel" name="phone" required><br>
 
-                <label for="toko">Nama Toko</label>
-                <input type="text" name="toko" required>
+                <label for="toko">Nama Toko</label><br>
+                <input type="text" name="toko" required><br>
 
-                <label for="email">Email</label>
-                <input type="email" name="email" required>
+                <label for="email">Email</label><br>
+                <input type="email" name="email" required><br>
 
-                <label for="password">Password</label>
-                <input type="password" name="password" required>
+                <label for="password">Password</label><br>
+                <input type="password" name="password" required><br>
             </div>
 
             <button class="btn btn-primary" type="submit">Daftar</button>

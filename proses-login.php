@@ -15,6 +15,7 @@
             $_SESSION["email"] = $data["email_pembeli"];
             $_SESSION["role"] = "pembeli";
             $_SESSION["id"] = $data["id_pembeli"];
+            $_SESSION["last_activity"] = time();
 
             header("Location: index.php?page=home&success=1");
             exit;
@@ -30,6 +31,7 @@
             $_SESSION["role"] = "penjual";
             $_SESSION["id"] = $data["id_penjual"];
             $_SESSION["toko"] = $data["nama_toko"];
+            $_SESSION["last_activity"] = time();
 
             header("Location: index.php?page=home&success=1");
             exit;

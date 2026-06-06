@@ -6,8 +6,14 @@ $page = $_GET['page'] ?? 'home';
 
 $allowed_pages = ['home', 'produk', 'form', 'login', 'products-admin', 'register'];
 
+$sequre_pages = ['home', 'form', 'products-admin'];
+
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';
+}
+
+if (in_array($page, $sequre_pages)) {
+    require 'auth/auth.php';
 }
 
 if ($page == 'login') {
