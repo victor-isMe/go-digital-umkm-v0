@@ -37,6 +37,21 @@
             exit;
         }
 
+        $queryAdmin = mysqli_query($koneksi, "SELECT * FROM admin WHERE email_admin='$email' AND password='$password'");
+
+        if (mysqli_num_rows($queryAdmin) > 0) {
+            $data = mysqli_fetch_assoc($queryAdmin);
+
+            $_SESSION["login"] = true;
+            $_SESSION["email"] = $data["email_admin"];
+            $_SESSION["role"] = "admin";
+            $_SESSION["id"] = $data["id_admin"];
+            $_SESSION["last_activity"] = time();
+
+            header("Location: index.php?page=home&success=1");
+            exit;
+        }
+
         header("Location: index.php?page=login&error=1");
         exit;
     }
