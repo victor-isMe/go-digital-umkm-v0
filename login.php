@@ -22,7 +22,6 @@
                 </script>
             <?php endif; ?>   
 
-            <!-- UJI COBA -->
             <?php if (isset($_GET['expired'])): ?>
                 <div id="toast" class="alert alert-warning fixed-bottom text-center">
                     Session berakhir, silahkan login ulang!
@@ -38,7 +37,6 @@
                     );
                 </script>
             <?php endif; ?>   
-            <!-- UJI COBA -->
 
             <label>Email</label>
             <input name="email" type="email" placeholder="Email" required>
@@ -50,7 +48,7 @@
                 Login
             </button>
         </form>
-        
+
     </div>
 
 </div>

@@ -6,7 +6,7 @@ $nama = $_POST['nama'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 $alamat = $_POST['alamat'];
-$password = $_POST['password'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 $cekEmail = $koneksi->query("SELECT email_pembeli FROM pembeli WHERE email_pembeli='$email' UNION SELECT email_penjual FROM penjual WHERE email_penjual='$email'");
 
