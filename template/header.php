@@ -6,16 +6,33 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
+            
             <ul class="navbar-nav justify-content-center text-center ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.php?page=home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.php?page=produk">Products</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.php?page=login">Login/Register</a></li>
-
-                <!-- <li>
-                <a href="keranjang.html">
-                🛒
-                </a>
-                </li> -->
+                <?php if (!isset($_SESSION['login'])): ?>
+                    <li class="nav-item"><a class="nav-link" href="index.php?page=home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php?page=produk">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php?page=login">Login/Register</a></li>
+                <?php else: ?>
+                    <?php if ($_SESSION['role'] == 'admin'): ?>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=daftar-umkm">Daftar UMKMK</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=nonaktifkan-umkm">Nonaktifkan UMKM</a></li>
+                        <li class="nav-item"><a class="nav-link text-danger" href="logout.php">Logout</a></li>
+                    <?php elseif ($_SESSION['role'] == 'penjual'): ?>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=products-admin">Kelola Produk</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=daftar-pesanan">Daftar Pesanan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=pembayaran">Pembayaran</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=status-pesanan">Kirim Status Pesanan</a></li>
+                        <li class="nav-item"><a class="nav-link text-danger" href="logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=produk">Produk</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=riwayat-pesanan">Riwayat Pesanan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=keranjang">Keranjang</a></li>
+                        <li class="nav-item"><a class="nav-link text-danger" href="logout.php">Logout</a></li>
+                    <?php endif; ?>                    
+                <?php endif; ?>    
             </ul>
         </div>
     </div>

@@ -347,9 +347,10 @@ body {
 
 /*== DASHBOARD ==*/
 .sidebar-dashboard{
-    min-height:100vh;
+    height: 100vh;
     background:#fff;
     border-right:1px solid #e5e7eb;
+    overflow-y: auto;
 }
 
 .sidebar-dashboard .sidebar-title{

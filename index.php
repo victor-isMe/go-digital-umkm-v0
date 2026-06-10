@@ -4,9 +4,9 @@ session_start();
 
 $page = $_GET['page'] ?? 'home';
 
-$allowed_pages = ['dashboard', 'home', 'produk', 'form', 'login', 'products-admin', 'register'];
+$allowed_pages = ['dashboard', 'home', 'produk', 'form', 'login', 'products-admin', 'register', 'edit-produk', 'daftar-umkm', 'nonaktifkan-umkm'];
 
-$sequre_pages = ['dashboard', 'form', 'products-admin'];
+$sequre_pages = ['dashboard', 'form', 'products-admin', 'edit-produk', 'daftar-umkm','nonaktifkan-umkm'];
 
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';
@@ -72,8 +72,10 @@ if (isset($_GET['hapus'])) {
 </head>
 
 <body>
-    <?php include 'template/header.php'; ?>
-    
+    <?php if ($page != 'admin/dashboard' && $page != 'penjual/dashboard' && $page != 'pembeli/dashboard'): ?>
+        <?php include 'template/header.php'; ?>
+    <?php endif; ?>
+
     <?php include "$page.php"; ?>
 
     <?php if (isset($_GET['success'])): ?>
@@ -92,7 +94,9 @@ if (isset($_GET['hapus'])) {
         </script>
     <?php endif; ?>
 
-    <?php include 'template/footer.php'; ?>
+    <?php if ($page != 'admin/dashboard' && $page != 'penjual/dashboard' && $page != 'pembeli/dashboard'): ?>
+        <?php include 'template/footer.php'; ?>
+    <?php endif; ?>
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>

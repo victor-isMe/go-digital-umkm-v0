@@ -10,7 +10,7 @@ $total_umkm = mysqli_num_rows(
 
     <div class="row">
 
-        <div class="col-md-2 sidebar p-3">
+        <div class="col-md-2 p-0">
 
             <?php include './template/sidebar.php'; ?>
 
