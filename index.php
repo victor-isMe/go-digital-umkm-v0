@@ -4,9 +4,9 @@ session_start();
 
 $page = $_GET['page'] ?? 'home';
 
-$allowed_pages = ['home', 'produk', 'form', 'login', 'products-admin', 'register'];
+$allowed_pages = ['dashboard', 'home', 'produk', 'form', 'login', 'products-admin', 'register'];
 
-$sequre_pages = ['home', 'form', 'products-admin'];
+$sequre_pages = ['dashboard', 'form', 'products-admin'];
 
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';
@@ -21,17 +21,29 @@ if ($page == 'login') {
         header("Location: index.php?page=home");
         exit;
     }
-
 }
 
-if ($page == 'form') {
-    if (!isset($_SESSION['login'])) {
+if (in_array($page, $sequre_pages)) {
+    if(!isset($_SESSION['login'])) {
         header("Location: index.php?page=login");
         exit;
     }
+}
+
+if ($page == 'dashboard') {
+    if ($_SESSION['role'] == 'admin') {
+        $page = 'admin/dashboard';
+    } elseif ($_SESSION['role'] == 'penjual') {
+        $page = 'penjual/dashboard';
+    } elseif ($_SESSION['role'] == 'pembeli') {
+        $page = 'pembeli/dashboard';
+    }
+}
+
+if ($page == 'form') {
     if ($_SESSION['role'] !== 'penjual') {
         echo "Akses ditolak!";
-        header("Location: index.php?page=home");
+        header("Location: index.php?page=dashboard");
         exit;
     }
 }

@@ -345,6 +345,56 @@ body {
     }
 }
 
+/*== DASHBOARD ==*/
+.sidebar-dashboard{
+    min-height:100vh;
+    background:#fff;
+    border-right:1px solid #e5e7eb;
+}
+
+.sidebar-dashboard .sidebar-title{
+    font-weight:700;
+    color:#2563eb;
+}
+
+.sidebar-dashboard .nav-link{
+    color:#64748b;
+    border-radius:10px;
+    padding:12px 15px;
+    margin-bottom:5px;
+    transition:.2s;
+}
+
+.sidebar-dashboard .nav-link:hover{
+    background:#eff6ff;
+    color:#2563eb;
+}
+
+.sidebar-dashboard .nav-link.active{
+    background:#2563eb;
+    color:white !important;
+}
+
+.stat-card{
+    border:none;
+    border-radius:16px;
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.05);
+}
+
+.stat-number{
+    font-size:2rem;
+    font-weight:700;
+}
+
+.dashboard-header{
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+
 /* FOOTER */
 
 footer {

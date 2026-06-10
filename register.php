@@ -51,6 +51,7 @@
             </div>
 
             <button class="btn btn-primary" type="submit">Daftar</button>
+            <p style="font-size: 14px;">Sudah punya akun? <a href="index.php?page=login">Login</a></p>
 
         </form>
     </div>

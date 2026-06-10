@@ -18,7 +18,7 @@
                 $_SESSION["id"] = $data["id_pembeli"];
                 $_SESSION["last_activity"] = time();
 
-                header("Location: index.php?page=home&success=1");
+                header("Location: index.php?page=dashboard&success=1");
                 exit;
             }
         }
@@ -36,7 +36,7 @@
                 $_SESSION["toko"] = $data["nama_toko"];
                 $_SESSION["last_activity"] = time();
 
-                header("Location: index.php?page=home&success=1");
+                header("Location: index.php?page=dashboard&success=1");
                 exit;
             }
         }
@@ -53,7 +53,7 @@
                 $_SESSION["id"] = $data["id_admin"];
                 $_SESSION["last_activity"] = time();
 
-                header("Location: index.php?page=home&success=1");
+                header("Location: index.php?page=dashboard&success=1");
                 exit;
             }
         }

@@ -47,6 +47,8 @@
             <button type="submit" class="btn btn-primary">
                 Login
             </button>
+
+            <p style="font-size: 14px;">Belum punya akun? <a href="index.php?page=register">Daftar sekarang</a></p>
         </form>
 
     </div>

@@ -9,16 +9,8 @@
             <ul class="navbar-nav justify-content-center text-center ms-auto">
                 <li class="nav-item"><a class="nav-link" href="index.php?page=home">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.php?page=produk">Products</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.php?page=form">Add Product</a></li>
-                <?php if (!isset($_SESSION["login"])): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=login">Login</a>
-                    </li>
-                <?php else: ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
-                    </li>
-                <?php endif; ?>
+                <li class="nav-item"><a class="nav-link" href="index.php?page=login">Login/Register</a></li>
+
                 <!-- <li>
                 <a href="keranjang.html">
                 🛒
