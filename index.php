@@ -4,9 +4,9 @@ session_start();
 
 $page = $_GET['page'] ?? 'home';
 
-$allowed_pages = ['dashboard', 'home', 'produk', 'form', 'login', 'products-admin', 'register', 'edit-produk', 'daftar-umkm', 'nonaktifkan-umkm'];
+$allowed_pages = ['dashboard', 'home', 'produk', 'form', 'login', 'products-admin', 'register', 'edit-produk', 'admin/daftar-umkm', 'admin/nonaktifkan-umkm'];
 
-$sequre_pages = ['dashboard', 'form', 'products-admin', 'edit-produk', 'daftar-umkm','nonaktifkan-umkm'];
+$sequre_pages = ['dashboard', 'form', 'products-admin', 'edit-produk', 'admin/daftar-umkm','admin/nonaktifkan-umkm'];
 
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';

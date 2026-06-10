@@ -8,8 +8,8 @@
     <ul class="nav flex-column">
         <?php if ($_SESSION['role'] == 'admin'): ?>
             <li class="nav-item"><a class="nav-link <?= $currentPage == $page ? 'active' : '' ?>" href="index.php?page=dashboard">Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link <?= $currentPage == $page ? 'active' : '' ?>" href="index.php?page=daftar-umkm">Daftar UMKMK</a></li>
-            <li class="nav-item"><a class="nav-link <?= $currentPage == $page ? 'active' : '' ?>" href="index.php?page=nonaktifkan-umkm">Nonaktifkan UMKM</a></li>
+            <li class="nav-item"><a class="nav-link <?= $currentPage == $page ? 'active' : '' ?>" href="index.php?page=admin/daftar-umkm">Daftar UMKM</a></li>
+            <li class="nav-item"><a class="nav-link <?= $currentPage == $page ? 'active' : '' ?>" href="index.php?page=admin/nonaktifkan-umkm">Nonaktifkan UMKM</a></li>
             <li class="nav-item"><a class="nav-link text-danger" href="logout.php">Logout</a></li>
         <?php elseif ($_SESSION['role'] == 'penjual'): ?>
             <li class="nav-item"><a class="nav-link <?= $currentPage == $page ? 'active' : '' ?>" href="index.php?page=dashboard">Dashboard</a></li>
