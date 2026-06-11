@@ -125,7 +125,9 @@ if (isset($_GET['hapus'])) {
         <?php include 'template/header.php'; ?>
     <?php endif; ?>
 
-    <?php include "$page.php"; ?>
+    <div class="min-vh-100">
+        <?php include "$page.php"; ?>
+    </div>
 
     <?php if (isset($_GET['success'])): ?>
         <div id="toast" class="alert alert-success fixed-bottom text-center">

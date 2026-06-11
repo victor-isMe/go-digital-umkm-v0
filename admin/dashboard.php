@@ -60,9 +60,9 @@ $total_umkm = mysqli_num_rows(
 
                     <ul>
 
-                        <li>Monitoring UMKM</li>
+                        <li><a class="nav-link" href="index.php?page=admin/daftar-umkm">Monitoring UMKM</a></li>
 
-                        <li>Nonaktifkan Akun Penjual</li>
+                        <li><a class="nav-link" href="index.php?page=admin/nonaktifkan-umkm">Nonaktifkan Akun Penjual</a></li>
 
                     </ul>
 
