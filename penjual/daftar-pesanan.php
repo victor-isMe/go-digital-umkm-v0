@@ -1,5 +1,7 @@
 <?php
-$query = mysqli_query($koneksi, "SELECT * FROM pesanan ORDER BY id_pesanan DESC");
+$id_penjual = $_SESSION['id'];
+
+$query = mysqli_query($koneksi, "SELECT * FROM pesanan WHERE id_penjual='$id_penjual' ORDER BY id_pesanan DESC");
 ?>
 
 <div class="container mt-4">

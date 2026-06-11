@@ -9,10 +9,12 @@
             <?php
             $total = 0;
             $items = [];
+            $id_penjual = 0;
 
             foreach ($_SESSION['cart'] as $id => $qty) {
                 $query = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
                 $produk = mysqli_fetch_assoc($query); 
+                $id_penjual = $produk['id_penjual'];
                 $subtotal = $produk['harga']*$qty;
                 $total += $subtotal;
 
@@ -77,13 +79,15 @@
                         nama_pemesan,
                         alamat_pemesan,
                         metode_bayar,
-                        total_harga)
+                        total_harga,
+                        id_penjual)
                         VALUES(
                         '{$_SESSION['id']}',
                         '$nama',
                         '$alamat',
                         '$bayar',
-                        '$total')");
+                        '$total',
+                        '$id_penjual')");
 
         unset($_SESSION['cart']);
 
