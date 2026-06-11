@@ -28,64 +28,20 @@
                         <h6 class="mt-2 mb-2"><?= $row['nama']; ?></h6>
                         <p class="text-success fw-semibold mb-0">Rp <?= number_format($row['harga'], 0, ',','.'); ?></p>
 
-                        <button onclick="tambahKeranjang('<?= $row['nama']; ?>', <?= $row['harga']; ?>)" class="btn btn-primary">
-                            Beli
-                        </button>
+                        <div class="row pe-3">
+                            <div class="col-9">
+                                <button class="btn btn-primary">Beli</button>
+                            </div>
+                            <div class="col-3">
+                                <a href="index.php?page=produk&add_cart=<?= $row['id_produk'] ?>" class="btn btn-success">🛒</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             <?php endwhile; ?>
         </div>
 
-        <div class="cart-float">
-            🛒 (<span id="cart-count">0</span>)
-        </div>
-
-        <div id="cart" class="cart">
-            <h3>Keranjang</h3>
-            <div id="cart-items"></div>
-            <p>
-                Total :
-                <b>
-                    Rp <span id="total">0</span>
-                </b>
-            </p>
-            <button onclick="bukaCheckout()" class="btn btn-primary btn-lg">
-                Checkout
-            </button>
-        </div>
-    </div>
-
-    <div id="checkoutModal" class="modal">
-        <div class="modal-content">
-            <h2>Checkout</h2>
-            <p>
-                Total :
-                <b>
-                    Rp <span id="totalCheckout"></span>
-                </b>
-            </p>
-            <input id="nama" placeholder="Nama">
-            <input id="alamat" placeholder="Alamat">
-            <label>
-                <input type="radio" name="pay" value="Transfer Bank">
-                Transfer Bank
-            </label>
-            <label>
-                <input type="radio" name="pay" value="E-Wallet">
-                E Wallet
-            </label>
-            <label>
-                <input type="radio" name="pay" value="COD">
-                COD
-            </label>
-            <button onclick="prosesCheckout()" class="btn btn-primary">
-                Bayar
-            </button>
-            <button onclick="tutupCheckout()" class="btn btn-danger">
-                Batal
-            </button>
-        </div>
     </div>
 
     <script>

@@ -22,7 +22,7 @@
             <li class="nav-item"><a class="nav-link <?= $currentPage == $page ? 'active' : '' ?>" href="index.php?page=dashboard">Dashboard</a></li>
             <li class="nav-item"><a class="nav-link <?= $currentPage == $page ? 'active' : '' ?>" href="index.php?page=produk">Produk</a></li>
             <li class="nav-item"><a class="nav-link <?= $currentPage == $page ? 'active' : '' ?>" href="index.php?page=riwayat-pesanan">Riwayat Pesanan</a></li>
-            <li class="nav-item"><a class="nav-link <?= $currentPage == $page ? 'active' : '' ?>" href="index.php?page=keranjang">Keranjang</a></li>
+            <li class="nav-item"><a class="nav-link <?= $currentPage == $page ? 'active' : '' ?>" href="index.php?page=pembeli/keranjang">Keranjang</a></li>
             <li class="nav-item"><a class="nav-link text-danger" href="logout.php">Logout</a></li>
         <?php endif; ?>                    
     </ul>

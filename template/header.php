@@ -29,7 +29,7 @@
                         <li class="nav-item"><a class="nav-link" href="index.php?page=dashboard">Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="index.php?page=produk">Produk</a></li>
                         <li class="nav-item"><a class="nav-link" href="index.php?page=riwayat-pesanan">Riwayat Pesanan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php?page=keranjang">Keranjang</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=pembeli/keranjang">Keranjang<?php $jumlah = 0; if (isset($_SESSION['cart'])) {$jumlah = array_sum($_SESSION['cart']);} ?>(<?= $jumlah ?>)</a></li>
                         <li class="nav-item"><a class="nav-link text-danger" href="logout.php">Logout</a></li>
                     <?php endif; ?>                    
                 <?php endif; ?>    
