@@ -1,19 +1,4 @@
 <?php
-if (isset($_POST['update-status'])){
-    $id = $_POST['id_pesanan'];
-    $status = $_POST['status'];
-
-    mysqli_query($koneksi, "UPDATE pesanan SET status='$status' WHERE id_pesanan='$id'");
-
-    echo "
-    <script>
-        alert('Status pesanan berhasil diperbarui');
-        location='index.php?page=penjual/status-pesanan';
-    </script>";
-}
-?>
-
-<?php
 $query = mysqli_query($koneksi, "SELECT * FROM pesanan ORDER BY id_pesanan DESC");
 ?>
 
@@ -33,7 +18,6 @@ $query = mysqli_query($koneksi, "SELECT * FROM pesanan ORDER BY id_pesanan DESC"
                         <th>Total</th>
                         <th>Metode Bayar</th>
                         <th>Status</th>
-                        <th width="250">Update Status</th>
                     </tr>
                 </thead>
 
@@ -63,23 +47,6 @@ $query = mysqli_query($koneksi, "SELECT * FROM pesanan ORDER BY id_pesanan DESC"
                                 <span class="badge bg-<?= $badge ?>">
                                     <?= $row['status'] ?>
                                 </span>
-                            </td>
-                            <td>
-                                <form method="POST">
-                                    <input type="hidden" name="id_pesanan" value="<?= $row['id_pesanan'] ?>">
-
-                                    <div class="d-flex gap-2">
-                                        <select name="status" class="form-select">
-                                            <option <?= $row['status'] == 'diproses' ? 'selected' : '' ?>>Diproses</option>
-                                            <option <?= $row['status'] == 'dikirim' ? 'selected' : '' ?>>Dikirim</option>
-                                            <option <?= $row['status'] == 'selesai' ? 'selected' : '' ?>>Selesai</option>
-                                        </select>
-
-                                        <button type="submit" name="update-status" class="btn btn-primary">
-                                            Save
-                                        </button>
-                                    </div>
-                                </form>
                             </td>
                         </tr>
                     <?php endwhile; ?>
