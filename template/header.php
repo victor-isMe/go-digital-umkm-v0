@@ -23,7 +23,7 @@
                         <li class="nav-item"><a class="nav-link" href="index.php?page=products-admin">Kelola Produk</a></li>
                         <li class="nav-item"><a class="nav-link" href="index.php?page=daftar-pesanan">Daftar Pesanan</a></li>
                         <li class="nav-item"><a class="nav-link" href="index.php?page=pembayaran">Pembayaran</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php?page=status-pesanan">Kirim Status Pesanan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php?page=penjual/status-pesanan">Kirim Status Pesanan</a></li>
                         <li class="nav-item"><a class="nav-link text-danger" href="logout.php">Logout</a></li>
                     <?php else: ?>
                         <li class="nav-item"><a class="nav-link" href="index.php?page=dashboard">Dashboard</a></li>
