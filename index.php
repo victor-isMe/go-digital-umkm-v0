@@ -121,9 +121,7 @@ if (isset($_GET['hapus'])) {
 </head>
 
 <body>
-    <?php if ($page != 'admin/dashboard' && $page != 'penjual/dashboard' && $page != 'pembeli/dashboard'): ?>
-        <?php include 'template/header.php'; ?>
-    <?php endif; ?>
+    <?php include 'template/header.php'; ?>
 
     <div class="min-vh-100">
         <?php include "$page.php"; ?>
