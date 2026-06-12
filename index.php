@@ -48,9 +48,6 @@ if ($page == 'form') {
     }
 }
 
-if ($page == 'produk') {
-    $result = mysqli_query($koneksi, "SELECT * FROM produk");
-}
 if (isset($_GET['add_cart'])) {
     $id = $_GET['add_cart'];
 
