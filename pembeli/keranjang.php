@@ -1,4 +1,6 @@
 <div class="container mt-4">
+    <?php $id_pembeli = $_SESSION['id'] ?>
+
     <h2>Keranjang Belanja</h2>
 
     <?php if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0): ?>
@@ -26,6 +28,10 @@
                     $subtotal = $produk['harga'] * $qty;
 
                     $total += $subtotal;
+
+                    mysqli_query($koneksi, "INSERT INTO keranjang (id_pembeli, id_produk, qty)
+                                    VALUES ('$id_pembeli', '$id', '$qty')
+                                    ON DUPLICATE KEY UPDATE qty=qty+$qty");
                 ?>
 
                 <tr>

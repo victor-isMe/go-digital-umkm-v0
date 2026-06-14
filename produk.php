@@ -63,12 +63,12 @@ function filter_url($kat) {
                         <h6 class="mt-2 mb-2"><?= $row['nama']; ?></h6>
                         <p class="text-success fw-semibold mb-0">Rp <?= number_format($row['harga'], 0, ',','.'); ?></p>
 
-                        <div class="row">
+                        <div class="row g-1">
                             <div class="col-9">
                                 <a href="index.php?page=pembeli/checkout" class="btn btn-primary w-100">Beli</a>
                             </div>
                             <div class="col-3">
-                                <a href="index.php?page=produk&add_cart=<?= $row['id_produk'] ?>" class="btn btn-success w-100">🛒</a>
+                                <a href="index.php?page=produk&add_cart=<?= $row['id_produk'] ?>" class="btn btn-primary w-100">🛒</a>
                             </div>
                         </div>
                     </div>

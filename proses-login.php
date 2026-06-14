@@ -19,6 +19,15 @@
                 $_SESSION["nama"] = $data["nama_pembeli"];
                 $_SESSION["last_activity"] = time();
 
+                $id_pembeli = $_SESSION["id"];
+                $result = mysqli_query($koneksi, "SELECT id_produk, qty FROM keranjang WHERE id_pembeli='$id_pembeli'");
+
+                $_SESSION["cart"] = [];
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $_SESSION["cart"][$row['id_produk']] = $row['qty'];
+                }
+
                 header("Location: index.php?page=dashboard&success=1");
                 exit;
             }
