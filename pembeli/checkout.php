@@ -2,6 +2,16 @@
 
     <h2>Checkout</h2>
 
+    <?php
+    if (isset($_GET['buy_now'])) {
+        $id_produk = $_GET['buy_now'];
+
+        $_SESSION['buy_now'] = [];
+
+        $_SESSION['buy_now'][$id_produk] = 1;
+    }
+    ?>
+
     <div class="card mb-3">
         <div class="card-body">
             <h5>Ringkasan Pesanan</h5>
@@ -9,12 +19,12 @@
             <?php
             $total = 0;
             $items = [];
-            $id_penjual = 0;
 
-            foreach ($_SESSION['cart'] as $id => $qty) {
+            $data = isset($_SESSION['buy_now']) ? $_SESSION['buy_now'] : $_SESSION['cart'];
+
+            foreach ($data as $id => $qty) {
                 $query = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
                 $produk = mysqli_fetch_assoc($query); 
-                $id_penjual = $produk['id_penjual'];
                 $subtotal = $produk['harga']*$qty;
                 $total += $subtotal;
 
@@ -62,7 +72,7 @@
             </label>
         </div>
         <div class="mb-3">
-            <textarea name="catatan" class="form-control" placeholder="Catatan (opsional)" required></textarea>
+            <textarea name="catatan" class="form-control" placeholder="Catatan (opsional)"></textarea>
         </div>
 
         <button type="submit" name="checkout" class="btn btn-success w-100">Bayar</button>
@@ -74,7 +84,29 @@
         $alamat = $_POST['alamat'];
         $bayar = $_POST['bayar'];
 
-        mysqli_query($koneksi, "INSERT INTO pesanan(
+        $grup = [];
+
+        foreach ($_SESSION['cart'] as $id => $qty) {
+            $query = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
+            $produk = mysqli_fetch_assoc($query);
+
+            $id_penjual = $produk['id_penjual'];
+
+            $grup[$id_penjual][] = [
+                'id_produk' => $id,
+                'qty' => $qty,
+                'harga' => $produk['harga']
+            ];
+        }
+
+        foreach ($grup as $seller => $items) {
+            $total_per_seller = 0;
+
+            foreach ($items as $item) {
+                $total_per_seller += $item['harga'] * $item['qty'];
+            }
+
+            mysqli_query($koneksi, "INSERT INTO pesanan(
                         id_pembeli,
                         nama_pemesan,
                         alamat_pemesan,
@@ -86,10 +118,34 @@
                         '$nama',
                         '$alamat',
                         '$bayar',
-                        '$total',
+                        '$total_per_seller',
                         '$id_penjual')");
 
-        unset($_SESSION['cart']);
+            $id_pesanan = mysqli_insert_id($koneksi);
+
+            foreach ($items as $item) {
+                $subtotal = $item['harga']*$item['qty'];
+
+                mysqli_query($koneksi, "INSERT INTO detail_pesanan(
+                            id_pesanan,
+                            id_produk,
+                            jumlah_produk,
+                            sub_total)
+                            VALUES(
+                            '$id_pesanan',
+                            '{$item['id_produk']}',
+                            '{$item['qty']}',
+                            '$subtotal')
+                            ");
+            }
+
+        }
+
+        if (isset($_SESSION['buy_now'])) {
+            unset($_SESSION['buy_now']);
+        } else {
+            unset($_SESSION['cart']);
+        }
 
         echo "
         <script>

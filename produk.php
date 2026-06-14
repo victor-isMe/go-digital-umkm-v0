@@ -65,7 +65,7 @@ function filter_url($kat) {
 
                         <div class="row g-1">
                             <div class="col-9">
-                                <a href="index.php?page=pembeli/checkout" class="btn btn-primary w-100">Beli</a>
+                                <a href="index.php?page=pembeli/checkout&buy_now=<?= $row['id_produk'] ?>" class="btn btn-primary w-100">Beli Sekarang</a>
                             </div>
                             <div class="col-3">
                                 <a href="index.php?page=produk&add_cart=<?= $row['id_produk'] ?>" class="btn btn-primary w-100">🛒</a>
