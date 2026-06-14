@@ -1,6 +1,7 @@
 <?php
 
 $id_pembeli = $_SESSION['id'];
+$nama = $_SESSION['nama'];
 
 $total_produk = mysqli_num_rows(
     mysqli_query($koneksi, "SELECT * FROM produk")
@@ -263,7 +264,7 @@ $total_pesanan = mysqli_num_rows(
                     <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
                     <circle cx="12" cy="7" r="4"/>
                 </svg>
-                Pembeli
+                <?= htmlspecialchars($nama) ?>
             </span>
         </div>
 

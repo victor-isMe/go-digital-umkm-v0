@@ -47,7 +47,7 @@ function filter_url($kat) {
             <a href="<?= filter_url('fashion') ?>" class="button">Fashion</a>
         </div>
 
-        <div class="row row-cols-2 row-cols-md-3 g-3">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
             <?php if (mysqli_num_rows($result) == 0): ?>
                 <div>
                     <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
@@ -65,10 +65,10 @@ function filter_url($kat) {
 
                         <div class="row">
                             <div class="col-9">
-                                <a href="index.php?page=pembeli/checkout" class="btn btn-primary">Beli</a>
+                                <a href="index.php?page=pembeli/checkout" class="btn btn-primary w-100">Beli</a>
                             </div>
                             <div class="col-3">
-                                <a href="index.php?page=produk&add_cart=<?= $row['id_produk'] ?>" class="btn btn-success">🛒</a>
+                                <a href="index.php?page=produk&add_cart=<?= $row['id_produk'] ?>" class="btn btn-success w-100">🛒</a>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,8 @@
 <?php
 
+$id = $_SESSION['id'];
+$nama = $_SESSION['nama'];
+
 $total_umkm = mysqli_num_rows(
     mysqli_query($koneksi,"SELECT * FROM penjual")
 );
@@ -25,7 +28,7 @@ $total_nonaktif = $total_umkm - $total_aktif;
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 </svg>
-                Admin
+                <?= htmlspecialchars($nama) ?>
             </span>
         </div>
  

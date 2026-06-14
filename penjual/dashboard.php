@@ -1,6 +1,7 @@
 <?php
 
 $id_penjual = $_SESSION['id'];
+$nama = $_SESSION['nama'];
 
 $total_produk = mysqli_num_rows(
     mysqli_query($koneksi, "SELECT * FROM produk WHERE id_penjual = '$id_penjual'")
@@ -264,7 +265,7 @@ $total_pending = mysqli_num_rows(
                     <line x1="3" y1="6" x2="21" y2="6"/>
                     <path d="M16 10a4 4 0 01-8 0"/>
                 </svg>
-                Penjual
+                <?= htmlspecialchars($nama) ?>
             </span>
         </div>
 

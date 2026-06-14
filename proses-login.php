@@ -16,6 +16,7 @@
                 $_SESSION["email"] = $data["email_pembeli"];
                 $_SESSION["role"] = "pembeli";
                 $_SESSION["id"] = $data["id_pembeli"];
+                $_SESSION["nama"] = $data["nama_pembeli"];
                 $_SESSION["last_activity"] = time();
 
                 header("Location: index.php?page=dashboard&success=1");
@@ -28,11 +29,12 @@
         if (mysqli_num_rows($queryPenjual) > 0) {
             $data = mysqli_fetch_assoc($queryPenjual);
 
-            if (password_verify($password, $data["password"])) {
+            if (password_verify($password, $data["password"]) && $data["status"] == 'aktif') {
                 $_SESSION["login"] = true;
                 $_SESSION["email"] = $data["email_penjual"];
                 $_SESSION["role"] = "penjual";
                 $_SESSION["id"] = $data["id_penjual"];
+                $_SESSION["nama"] = $data["nama_penjual"];
                 $_SESSION["toko"] = $data["nama_toko"];
                 $_SESSION["last_activity"] = time();
 
@@ -51,6 +53,7 @@
                 $_SESSION["email"] = $data["email_admin"];
                 $_SESSION["role"] = "admin";
                 $_SESSION["id"] = $data["id_admin"];
+                $_SESSION["nama"] = $data["nama_admin"];
                 $_SESSION["last_activity"] = time();
 
                 header("Location: index.php?page=dashboard&success=1");
