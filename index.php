@@ -67,10 +67,10 @@ if (isset($_GET['add_cart'])) {
 if (isset($_GET['plus'])) {
     $id = $_GET['plus'];
 
-    $query = mysqli_query($koneksi, "SELECT stok, stok_reserved FROM produk WHERE id_produk='$id'");
+    $query = mysqli_query($koneksi, "SELECT stok FROM produk WHERE id_produk='$id'");
     $data = mysqli_fetch_assoc($query);
 
-    $tersedia = $data['stok'] - $data['stok_reserved'];
+    $tersedia = $data['stok'];
 
     $qurrent_qty = $_SESSION['cart'][$id] ?? 0;
 

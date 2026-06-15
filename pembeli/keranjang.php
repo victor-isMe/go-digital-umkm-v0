@@ -25,7 +25,7 @@
 
                     $produk = mysqli_fetch_assoc($query);
 
-                    $tersedia = $produk['stok'] - $produk['stok_reserved'];
+                    $tersedia = $produk['stok'];
 
                     if($qty > $tersedia) {
                         $qty = $tersedia;

@@ -27,13 +27,11 @@
                 $query = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
                 $produk = mysqli_fetch_assoc($query);
                 
-                $tersedia = $produk['stok'] - $produk['stok_reserved'];
+                $tersedia = $produk['stok'];
 
                 if ($qty > $tersedia) {
                     die("Stok habis untuk {$produk['nama']}");
                 }
-
-                mysqli_query($koneksi, "UPDATE produk SET stok_reserved=stok_reserved + $qty WHERE id_produk='$id'");
                 
                 $subtotal = $produk['harga']*$qty;
                 $total += $subtotal;
@@ -94,12 +92,18 @@
         $alamat = $_POST['alamat'];
         $bayar = $_POST['bayar'];
 
+        $query = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
+        $produk = mysqli_fetch_assoc($query);
+
+        $tersedia = $produk['stok'];
+
+        if ($qty > $tersedia) {
+            die("Stok habis, silahkan reload ulang halaman.");
+        }
+
         $grup = [];
 
         foreach ($data as $id => $qty) {
-            $query = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
-            $produk = mysqli_fetch_assoc($query);
-
             $id_penjual = $produk['id_penjual'];
 
             $grup[$id_penjual][] = [
@@ -108,7 +112,7 @@
                 'harga' => $produk['harga']
             ];
 
-            mysqli_query($koneksi, "UPDATE produk SET stok = stok - $qty, stok_reserved = stok_reserved - $qty WHERE id_produk='$id'");
+            mysqli_query($koneksi, "UPDATE produk SET stok = stok - $qty WHERE id_produk='$id' AND stok >= $qty");
         }
 
         foreach ($grup as $seller => $items) {
@@ -131,7 +135,7 @@
                         '$alamat',
                         '$bayar',
                         '$total_per_seller',
-                        '$id_penjual')");
+                        '$seller')");
 
             $id_pesanan = mysqli_insert_id($koneksi);
 
