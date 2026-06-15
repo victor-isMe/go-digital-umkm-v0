@@ -58,10 +58,11 @@ function filter_url($kat) {
 
                 <div class="col">
                     <div class="card bg-white p-3 rounded-4 shadow-sm border-0 card-hover">
-                        <img class="w-100 rounded-3 mb-2" src="<?= $row['foto']; ?>" alt="<?= $row['nama']; ?>" loading="lazy">
+                        <a href="index.php?page=produk/detail&id=<?= $row['id_produk'] ?>">
+                            <img class="w-100 rounded-3 mb-2" src="<?= $row['foto']; ?>" alt="<?= $row['nama']; ?>" loading="lazy">
+                        </a>
 
                         <h6 class="mt-2 mb-2"><?= $row['nama']; ?></h6>
-                        <span><?= $row['stok'] ?></span>
                         <p class="text-success fw-semibold mb-0">Rp <?= number_format($row['harga'], 0, ',','.'); ?></p>
 
                         <div class="row g-1">
