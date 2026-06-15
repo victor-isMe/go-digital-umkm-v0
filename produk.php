@@ -6,7 +6,7 @@ $offset = ($halaman - 1) * $per_page;
 
 //Filter Kategori
 $kategori_filter = isset($_GET['kategori']) ? $_GET['kategori'] : 'all';
-$where = '';
+$where = 'WHERE stok>0';
 if ($kategori_filter !== 'all') {
     $kategori = mysqli_real_escape_string($koneksi, $kategori_filter);
     $where = "WHERE kategori='$kategori' AND stok>0";

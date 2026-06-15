@@ -67,8 +67,17 @@ if (isset($_GET['add_cart'])) {
 if (isset($_GET['plus'])) {
     $id = $_GET['plus'];
 
-    if (isset($_SESSION['cart'][$id])) {
+    $query = mysqli_query($koneksi, "SELECT stok, stok_reserved FROM produk WHERE id_produk='$id'");
+    $data = mysqli_fetch_assoc($query);
+
+    $tersedia = $data['stok'] - $data['stok_reserved'];
+
+    $qurrent_qty = $_SESSION['cart'][$id] ?? 0;
+
+    if ($qurrent_qty < $tersedia) {
         $_SESSION['cart'][$id]++;
+    } else {
+        $_SESSION['cart'][$id] = $qurrent_qty;
     }
 
     header("Location: index.php?page=pembeli/keranjang");
@@ -88,8 +97,8 @@ if (isset($_GET['minus'])) {
     header("Location: index.php?page=pembeli/keranjang");
     exit;
 }
-if (isset($_GET['hapus'])) {
-    $id = $_GET['hapus'];
+if (isset($_GET['hapus_cart'])) {
+    $id = $_GET['hapus_cart'];
 
     unset($_SESSION['cart'][$id]);
 

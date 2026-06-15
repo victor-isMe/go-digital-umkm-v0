@@ -54,7 +54,7 @@
                             <a href="index.php?page=pembeli/keranjang&minus=<?= $id ?>" class="btn btn-warning btn-sm">-</a>
                             <strong><?= $qty ?></strong>
                             <a href="index.php?page=pembeli/keranjang&plus=<?= $id ?>" class="btn btn-success btn-sm">+</a>
-                            <a href="index.php?page=pembeli/keranjang&hapus=<?= $id ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus dari keranjang?')">Hapus</a>
+                            <a href="index.php?page=pembeli/keranjang&hapus_cart=<?= $id ?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus dari keranjang?')">Hapus</a>
                         </div>
                     </td>
                     <td>Rp <?= number_format($subtotal) ?></td>
