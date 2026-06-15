@@ -9,7 +9,7 @@ $kategori_filter = isset($_GET['kategori']) ? $_GET['kategori'] : 'all';
 $where = '';
 if ($kategori_filter !== 'all') {
     $kategori = mysqli_real_escape_string($koneksi, $kategori_filter);
-    $where = "WHERE kategori='$kategori'";
+    $where = "WHERE kategori='$kategori' AND stok>0";
 }
 
 //Hitung total produk
@@ -61,6 +61,7 @@ function filter_url($kat) {
                         <img class="w-100 rounded-3 mb-2" src="<?= $row['foto']; ?>" alt="<?= $row['nama']; ?>" loading="lazy">
 
                         <h6 class="mt-2 mb-2"><?= $row['nama']; ?></h6>
+                        <span><?= $row['stok'] ?></span>
                         <p class="text-success fw-semibold mb-0">Rp <?= number_format($row['harga'], 0, ',','.'); ?></p>
 
                         <div class="row g-1">

@@ -20,11 +20,21 @@
             $total = 0;
             $items = [];
 
+
             $data = isset($_SESSION['buy_now']) ? $_SESSION['buy_now'] : $_SESSION['cart'];
 
             foreach ($data as $id => $qty) {
                 $query = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
-                $produk = mysqli_fetch_assoc($query); 
+                $produk = mysqli_fetch_assoc($query);
+                
+                $tersedia = $produk['stok'] - $produk['stok_reserved'];
+
+                if ($qty > $tersedia) {
+                    die("Stok habis untuk {$produk['nama']}");
+                }
+
+                mysqli_query($koneksi, "UPDATE produk SET stok_reserved=stok_reserved + $qty WHERE id_produk='$id'");
+                
                 $subtotal = $produk['harga']*$qty;
                 $total += $subtotal;
 
@@ -86,7 +96,7 @@
 
         $grup = [];
 
-        foreach ($_SESSION['cart'] as $id => $qty) {
+        foreach ($data as $id => $qty) {
             $query = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
             $produk = mysqli_fetch_assoc($query);
 
@@ -97,6 +107,8 @@
                 'qty' => $qty,
                 'harga' => $produk['harga']
             ];
+
+            mysqli_query($koneksi, "UPDATE produk SET stok = stok - $qty, stok_reserved = stok_reserved - $qty WHERE id_produk='$id'");
         }
 
         foreach ($grup as $seller => $items) {

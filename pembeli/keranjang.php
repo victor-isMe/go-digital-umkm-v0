@@ -25,6 +25,12 @@
 
                     $produk = mysqli_fetch_assoc($query);
 
+                    $tersedia = $produk['stok'] - $produk['stok_reserved'];
+
+                    if($qty > $tersedia) {
+                        $qty = $tersedia;
+                    }
+
                     $subtotal = $produk['harga'] * $qty;
 
                     $total += $subtotal;
@@ -35,7 +41,13 @@
                 ?>
 
                 <tr>
-                    <td><?= $produk['nama'] ?></td>
+                    <td><?= $produk['nama'] ?>
+                    <?php
+                    if ($tersedia <= 0) {
+                        echo "<span style='color: red'>Stok Habis</span>";
+                    }
+                    ?>
+                </td>
                     <td>Rp <?= number_format($produk['harga']) ?></td>
                     <td>
                         <div>
