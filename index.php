@@ -106,9 +106,6 @@ if (isset($_GET['hapus_cart'])) {
     exit;
 }
 
-if ($page == 'products-admin') {
-    $result = mysqli_query($koneksi, "SELECT * FROM produk");
-}
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
     mysqli_query($koneksi, "DELETE FROM produk WHERE id_produk='$id'");

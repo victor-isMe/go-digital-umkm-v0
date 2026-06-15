@@ -4,7 +4,7 @@ $id_pembeli = $_SESSION['id'];
 $nama = $_SESSION['nama'];
 
 $total_produk = mysqli_num_rows(
-    mysqli_query($koneksi, "SELECT * FROM produk")
+    mysqli_query($koneksi, "SELECT * FROM produk WHERE stok>0")
 );
 
 $total_pesanan = mysqli_num_rows(

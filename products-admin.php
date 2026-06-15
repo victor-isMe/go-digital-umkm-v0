@@ -9,7 +9,12 @@
         <th>Aksi</th>
     </tr>
 
-    <?php while ($row = mysqli_fetch_assoc($result)): ?>
+    <?php 
+        $id_penjual = $_SESSION['id'];
+        $result = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_penjual='$id_penjual'");
+
+        while ($row = mysqli_fetch_assoc($result)): 
+    ?>
     <tr>
         <td><?= $row['nama'] ?></td>
         <td><?= $row['kategori'] ?></td>
