@@ -92,18 +92,12 @@
         $alamat = $_POST['alamat'];
         $bayar = $_POST['bayar'];
 
-        $query = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
-        $produk = mysqli_fetch_assoc($query);
-
-        $tersedia = $produk['stok'];
-
-        if ($qty > $tersedia) {
-            die("Stok habis, silahkan reload ulang halaman.");
-        }
-
         $grup = [];
 
         foreach ($data as $id => $qty) {
+            $query = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
+            $produk = mysqli_fetch_assoc($query);
+
             $id_penjual = $produk['id_penjual'];
 
             $grup[$id_penjual][] = [
@@ -112,7 +106,7 @@
                 'harga' => $produk['harga']
             ];
 
-            mysqli_query($koneksi, "UPDATE produk SET stok = stok - $qty WHERE id_produk='$id' AND stok >= $qty");
+            mysqli_query($koneksi, "UPDATE produk set stok=stok-$qty WHERE id_produk=$id AND stok>=$qty");
         }
 
         foreach ($grup as $seller => $items) {
@@ -161,6 +155,7 @@
             unset($_SESSION['buy_now']);
         } else {
             unset($_SESSION['cart']);
+            mysqli_query($koneksi, "DELETE FROM keranjang WHERE id_pembeli='{$_SESSION['id']}'");
         }
 
         echo "
