@@ -12,11 +12,12 @@ if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFile)) {
     $stok = (int)$_POST['stock'];
     $deskripsi = $_POST['description'];
     $foto = $targetFile;
+    $id_penjual = (int)$_POST['id_penjual'];
 
-    $stmt = mysqli_prepare($koneksi, "INSERT INTO produk (nama, kategori, harga, stok, deskripsi, foto)
-                VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = mysqli_prepare($koneksi, "INSERT INTO produk (nama, kategori, harga, stok, deskripsi, foto, id_penjual)
+                VALUES (?, ?, ?, ?, ?, ?, ?)");
 
-    mysqli_stmt_bind_param($stmt, "ssiiss", $nama, $kategori, $harga, $stok, $deskripsi, $foto);
+    mysqli_stmt_bind_param($stmt, "ssiissi", $nama, $kategori, $harga, $stok, $deskripsi, $foto, $id_penjual);
 
     mysqli_stmt_execute($stmt);
 

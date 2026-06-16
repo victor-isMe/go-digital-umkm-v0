@@ -1,4 +1,5 @@
 <form class="form" action="save-product.php" method="POST" enctype="multipart/form-data">
+    <?php $id_penjual = $_SESSION['id']; ?>
 
     <h2>Tambah Produk UMKM</h2>
 
@@ -23,6 +24,8 @@
 
     <label>Upload Gambar</label>
     <input type="file" name="image" accept="img/*" required>
+
+    <input type="hidden" name="id_penjual" value="<?= $id_penjual ?>">
 
     <button type="submit" class="btn btn-primary">
         Simpan Produk
