@@ -17,6 +17,7 @@
                 $_SESSION["role"] = "pembeli";
                 $_SESSION["id"] = $data["id_pembeli"];
                 $_SESSION["nama"] = $data["nama_pembeli"];
+                $_SESSION['alamat'] = $data['alamat_pembeli'];
                 $_SESSION["last_activity"] = time();
 
                 $id_pembeli = $_SESSION["id"];

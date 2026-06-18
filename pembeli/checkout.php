@@ -9,6 +9,9 @@
         $_SESSION['buy_now'] = [];
 
         $_SESSION['buy_now'][$id_produk] = 1;
+
+        $nama = $_SESSION['nama'];
+        $alamat = $_SESSION['alamat'];
     }
     ?>
 
@@ -61,10 +64,10 @@
 
     <form method="POST">
         <div class="mb-3">
-            <input type="text" name="nama" class="form-control" placeholder="Nama penerima" required>
+            <input type="text" name="nama" class="form-control" placeholder="Nama penerima" value="<?= $nama ?>" required>
         </div>
         <div class="mb-3">
-            <textarea name="alamat" class="form-control" placeholder="Alamat penerima" required></textarea>
+            <textarea name="alamat" class="form-control" placeholder="Alamat penerima" required><?= $alamat ?></textarea>
         </div>
         <div class="mb-3">
             <label>
