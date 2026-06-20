@@ -8,6 +8,14 @@ $allowed_pages = ['dashboard', 'home', 'produk', 'form', 'login', 'products-admi
 
 $sequre_pages = ['dashboard', 'form', 'products-admin', 'edit-produk', 'admin/daftar-umkm','admin/nonaktifkan-umkm', 'pembeli/keranjang', 'pembeli/checkout', 'pembeli/riwayat-pesanan', 'penjual/status-pesanan', 'penjual/daftar-pesanan'];
 
+if ($page == 'home') {
+    if (!isset($_SESSION['login'])) {
+        $page = 'home';
+    } else {
+        header("Location: index.php?page=dashboard");
+    }
+}
+
 if (!in_array($page, $allowed_pages)) {
     $page = 'home';
 }
@@ -49,20 +57,25 @@ if ($page == 'form') {
 }
 
 if (isset($_GET['add_cart'])) {
-    $id = $_GET['add_cart'];
+    if (isset($_SESSION['login'])) {
+        $id = $_GET['add_cart'];
 
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = [];
-    }
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = [];
+        }
 
-    if (isset($_SESSION['cart'][$id])) {
-        $_SESSION['cart'][$id]++;
+        if (isset($_SESSION['cart'][$id])) {
+            $_SESSION['cart'][$id]++;
+        } else {
+            $_SESSION['cart'][$id] = 1;
+        }
+
+        header("Location: index.php?page=produk");
+        exit;
     } else {
-        $_SESSION['cart'][$id] = 1;
+        header("Location: index.php?page=login");
+        exit;
     }
-
-    header("Location: index.php?page=produk");
-    exit;
 }
 if (isset($_GET['plus'])) {
     $id = $_GET['plus'];

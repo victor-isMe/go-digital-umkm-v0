@@ -4,14 +4,19 @@
 
     <?php
     if (isset($_GET['buy_now'])) {
-        $id_produk = $_GET['buy_now'];
+        if (isset($_SESSION['login'])) {
+            $id_produk = $_GET['buy_now'];
 
-        $_SESSION['buy_now'] = [];
+            $_SESSION['buy_now'] = [];
 
-        $_SESSION['buy_now'][$id_produk] = 1;
+            $_SESSION['buy_now'][$id_produk] = 1;
 
-        $nama = $_SESSION['nama'];
-        $alamat = $_SESSION['alamat'];
+            $nama = $_SESSION['nama'];
+            $alamat = $_SESSION['alamat'];
+        } else {
+            header("Location: index.php?page=login");
+            exit;
+        }
     }
     ?>
 
