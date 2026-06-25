@@ -4,9 +4,9 @@ session_start();
 
 $page = $_GET['page'] ?? 'home';
 
-$allowed_pages = ['dashboard', 'home', 'produk', 'form', 'login', 'products-admin', 'register', 'edit-produk', 'admin/daftar-umkm', 'admin/nonaktifkan-umkm', 'pembeli/keranjang', 'pembeli/checkout', 'pembeli/riwayat-pesanan', 'penjual/status-pesanan', 'penjual/daftar-pesanan', 'produk/detail'];
+$allowed_pages = ['dashboard', 'home', 'produk', 'form', 'login', 'products-admin', 'register', 'edit-produk', 'admin/daftar-umkm', 'admin/nonaktifkan-umkm', 'pembeli/keranjang', 'pembeli/checkout', 'pembeli/riwayat-pesanan', 'penjual/status-pesanan', 'penjual/daftar-pesanan', 'produk/detail', 'penjual/verif-pembayaran'];
 
-$sequre_pages = ['dashboard', 'form', 'products-admin', 'edit-produk', 'admin/daftar-umkm','admin/nonaktifkan-umkm', 'pembeli/keranjang', 'pembeli/checkout', 'pembeli/riwayat-pesanan', 'penjual/status-pesanan', 'penjual/daftar-pesanan'];
+$sequre_pages = ['dashboard', 'form', 'products-admin', 'edit-produk', 'admin/daftar-umkm','admin/nonaktifkan-umkm', 'pembeli/keranjang', 'pembeli/checkout', 'pembeli/riwayat-pesanan', 'penjual/status-pesanan', 'penjual/daftar-pesanan', 'penjual/verif-pembayaran'];
 
 if ($page == 'home') {
     if (!isset($_SESSION['login'])) {
@@ -92,7 +92,7 @@ if (isset($_GET['plus'])) {
 
     if ($qurrent_qty < $tersedia) {
         mysqli_query($koneksi, "UPDATE keranjang SET qty=qty+1
-                    WHERE id_pembeli='$id_pembeli' AND id_produk='$id_produk;");
+                    WHERE id_pembeli='$id_pembeli' AND id_produk='$id_produk'");
     }
 
     header("Location: index.php?page=pembeli/keranjang");
