@@ -535,15 +535,287 @@ body {
     line-height: 1;
 }
 
+/*=================================================
+NAVBAR 
+==================================================*/
+.navbar-umkm {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+ 
+.navbar-umkm-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    height: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+ 
+/* BRAND */
+.navbar-brand-umkm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+ 
+.navbar-brand-icon {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+ 
+.navbar-brand-icon svg {
+    width: 18px;
+    height: 18px;
+}
+ 
+.navbar-brand-text {
+    font-size: 15px;
+    color: #1e293b;
+    letter-spacing: -0.2px;
+}
+ 
+.navbar-brand-text strong {
+    color: #16a34a;
+}
+ 
+/* MENU */
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+ 
+.nav-link-umkm {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+ 
+.nav-link-umkm:hover {
+    background: #f0fdf4;
+    color: #16a34a;
+}
+ 
+.nav-link-umkm.active {
+    background: #dcfce7;
+    color: #15803d;
+    font-weight: 600;
+}
+ 
+.nav-link-danger,
+.nav-link-danger:hover {
+    color: #ef4444;
+    background: transparent;
+}
+ 
+.nav-link-danger:hover {
+    background: #fef2f2;
+}
+ 
+/* TOMBOL MASUK */
+.nav-btn-umkm {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 16px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    box-shadow: 0 2px 6px rgba(22,163,74,0.25);
+    transition: all 0.15s;
+    margin-left: 4px;
+    white-space: nowrap;
+}
+ 
+.nav-btn-umkm:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(22,163,74,0.35);
+    color: #fff;
+}
+ 
+/* KERANJANG */
+.nav-cart-umkm {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    color: #475569;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    margin: 0 2px;
+}
+ 
+.nav-cart-umkm:hover,
+.nav-cart-umkm.active {
+    background: #dcfce7;
+    color: #15803d;
+}
+ 
+.nav-cart-umkm svg {
+    width: 20px;
+    height: 20px;
+}
+ 
+.cart-badge {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background: #ef4444;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3px;
+    line-height: 1;
+    border: 1.5px solid #fff;
+}
+ 
+/* HAMBURGER */
+.navbar-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+ 
+.navbar-hamburger:hover {
+    background: #f1f5f9;
+}
+ 
+.navbar-hamburger span {
+    display: block;
+    height: 2px;
+    background: #475569;
+    border-radius: 2px;
+    transition: all 0.2s;
+    transform-origin: center;
+}
+ 
+/* Hamburger → X saat open */
+.navbar-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar-hamburger.open span:nth-child(2) { opacity: 0; }
+.navbar-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 /* ============================================================
    FOOTER
 ============================================================ */
-
-footer {
-    background: white;
-    color: #64748b;
+.footer-umkm {
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 48px;
 }
-
+ 
+.footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 28px 28px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+ 
+/* BRAND */
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+ 
+.footer-brand-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+ 
+.footer-brand-icon svg {
+    width: 16px;
+    height: 16px;
+}
+ 
+.footer-brand-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e293b;
+}
+ 
+.footer-brand-tagline {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 1px;
+}
+ 
+/* LINKS */
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+ 
+.footer-links a {
+    padding: 5px 12px;
+    border-radius: 7px;
+    font-size: 13px;
+    color: #64748b;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+}
+ 
+.footer-links a:hover {
+    background: #f0fdf4;
+    color: #16a34a;
+}
+ 
+/* COPYRIGHT */
+.footer-copy {
+    font-size: 12px;
+    color: #94a3b8;
+}
 
 /* ============================================================
    ============================================================
@@ -669,6 +941,77 @@ footer {
     .content-card-header {
         flex-wrap: wrap;
         gap: 8px;
+    }
+
+    /* NAVBAR */
+    .navbar-umkm-inner {
+        padding: 0 16px;
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 56px;
+    }
+ 
+    .navbar-hamburger {
+        display: flex;
+    }
+ 
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        padding: 8px 0 12px;
+        gap: 2px;
+        border-top: 1px solid #f1f5f9;
+    }
+ 
+    .navbar-menu.open {
+        display: flex;
+    }
+ 
+    .nav-link-umkm,
+    .nav-btn-umkm {
+        padding: 10px 14px;
+        font-size: 14px;
+        border-radius: 8px;
+        justify-content: flex-start;
+    }
+ 
+    .nav-btn-umkm {
+        margin-left: 0;
+        margin-top: 4px;
+        justify-content: center;
+    }
+ 
+    .nav-cart-umkm {
+        width: auto;
+        height: auto;
+        padding: 10px 14px;
+        border-radius: 8px;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+ 
+    .nav-cart-umkm svg {
+        width: 18px;
+        height: 18px;
+    }
+ 
+    .cart-badge {
+        position: static;
+        border: none;
+    }
+ 
+    /* FOOTER */
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 20px 16px;
+    }
+ 
+    .footer-links {
+        flex-wrap: wrap;
     }
 }
 
