@@ -2,6 +2,12 @@
 $id_penjual = $_SESSION['id'];
 
 $query = mysqli_query($koneksi, "SELECT * FROM pesanan WHERE id_penjual='$id_penjual' ORDER BY tanggal DESC");
+
+if (isset($_GET['verifikasi'])) {
+    $id_pembeli = $_GET['verifikasi'];
+
+    mysqli_query($koneksi, "UPDATE pesanan SET verif_bayar='sudah' WHERE id_pembeli='$id_pembeli'");
+}
 ?>
 
 <div class="container mt-4">
@@ -20,6 +26,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM pesanan WHERE id_penjual='$id_pen
                         <th>Total</th>
                         <th>Metode Bayar</th>
                         <th>Bukti Bayar</th>
+                        <th>Status Pembayaran</th>
                         <th>Verifikasi</th>
                     </tr>
                 </thead>
@@ -40,7 +47,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM pesanan WHERE id_penjual='$id_pen
                                 ?>
 
                                 <?php if ($bayar !== 'COD'): ?>
-                                    <img class="img-thumbnail preview-img" src="<?= $bukti_bayar ?>" data-bs-toggle='modal' data-bs-target='#imgModal' width="50">
+                                    <img class="img-thumbnail preview-img" src="<?= $bukti_bayar ?>" data-bs-toggle='modal' data-bs-target='#imgModal' style="cursor: pointer; width: 50px;">
                                 <?php else: ?>
                                     <span>-</span>
                                 <?php endif; ?>
@@ -54,7 +61,14 @@ $query = mysqli_query($koneksi, "SELECT * FROM pesanan WHERE id_penjual='$id_pen
                                     </div>                            
                             </td>
                             <td>
-                                <button class="btn btn-primary btn-sm">Verifikasi</button>
+                                <?php if ($row['verif_bayar'] === 'belum'): ?>
+                                    <span class="text-danger">Belum Diverifikasi</span>
+                                <?php else: ?>
+                                    <span class="text-success">Sudah Diverifikasi</span>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <a href="index.php?page=penjual/verif-pembayaran&verifikasi=<?= $row['id_pembeli'] ?>" class="btn btn-primary btn-sm">Verifikasi</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
