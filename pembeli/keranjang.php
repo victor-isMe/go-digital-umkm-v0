@@ -1,24 +1,12 @@
 <?php
 $id_pembeli = $_SESSION['id'];
 
-// Sync session cart ke DB jika ada
-if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
-    foreach ($_SESSION['cart'] as $id_produk => $qty) {
-        $id_produk = (int)$id_produk;
-        $qty       = (int)$qty;
-        mysqli_query($koneksi, "INSERT INTO keranjang (id_pembeli, id_produk, qty)
-            VALUES ('$id_pembeli', '$id_produk', '$qty')
-            ON DUPLICATE KEY UPDATE qty = '$qty'");
-    }
-    unset($_SESSION['cart']); // pakai DB sebagai sumber utama mulai sekarang
-}
-
 $result = mysqli_query($koneksi, "
     SELECT
         k.id,
         k.qty,
         p.id_produk,
-        p.nama        AS nama_produk,
+        p.nama AS nama_produk,
         p.harga,
         p.stok,
         p.foto,

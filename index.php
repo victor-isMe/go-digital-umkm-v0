@@ -56,20 +56,22 @@ if ($page == 'form') {
     }
 }
 
+//Function ambil qty item dari DB keranjang
+function db_cart_qty ($koneksi, $id_pembeli, $id_produk) {
+    $q = mysqli_query($koneksi, "SELECT qty FROM keranjang
+                        WHERE id_pembeli='$id_pembeli' AND id_produk='$id_produk'");
+    $row = mysqli_fetch_assoc($q);
+    return $row ? (int)$row['qty'] : 0;
+}
+
 if (isset($_GET['add_cart'])) {
     if (isset($_SESSION['login'])) {
-        $id = $_GET['add_cart'];
+        $id_produk = $_GET['add_cart'];
+        $id_pembeli = $_SESSION['id'];
 
-        if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = [];
-        }
-
-        if (isset($_SESSION['cart'][$id])) {
-            $_SESSION['cart'][$id]++;
-        } else {
-            $_SESSION['cart'][$id] = 1;
-        }
-
+        mysqli_query($koneksi, "INSERT INTO keranjang (id_pembeli, id_produk, qty)
+                        VALUES ('$id_pembeli', '$id_produk', 1)
+                        ON DUPLICATE KEY UPDATE qty=qty+1");
         header("Location: index.php?page=produk");
         exit;
     } else {
@@ -78,42 +80,45 @@ if (isset($_GET['add_cart'])) {
     }
 }
 if (isset($_GET['plus'])) {
-    $id = $_GET['plus'];
+    $id_produk = $_GET['plus'];
+    $id_pembeli = $_SESSION['id'];
 
-    $query = mysqli_query($koneksi, "SELECT stok FROM produk WHERE id_produk='$id'");
+    $query = mysqli_query($koneksi, "SELECT stok FROM produk WHERE id_produk='$id_produk'");
     $data = mysqli_fetch_assoc($query);
 
     $tersedia = $data['stok'];
 
-    $qurrent_qty = $_SESSION['cart'][$id] ?? 0;
+    $qurrent_qty = db_cart_qty($koneksi, $id_pembeli, $id_produk);
 
     if ($qurrent_qty < $tersedia) {
-        $_SESSION['cart'][$id]++;
-    } else {
-        $_SESSION['cart'][$id] = $qurrent_qty;
+        mysqli_query($koneksi, "UPDATE keranjang SET qty=qty+1
+                    WHERE id_pembeli='$id_pembeli' AND id_produk='$id_produk;");
     }
 
     header("Location: index.php?page=pembeli/keranjang");
     exit;
 }
 if (isset($_GET['minus'])) {
-    $id = $_GET['minus'];
+    $id_produk = $_GET['minus'];
+    $id_pembeli = $_SESSION['id'];
 
-    if (isset($_SESSION['cart'][$id])) {
-        $_SESSION['cart'][$id]--;
+    $qurrent_qty = db_cart_qty($koneksi, $id_pembeli, $id_produk);
 
-        if ($_SESSION['cart'][$id] <= 0) {
-            unset($_SESSION['cart'][$id]);
-        }
+    if ($qurrent_qty > 1) {
+        mysqli_query($koneksi, "UPDATE keranjang SET qty=qty-1
+                    WHERE id_pembeli='$id_pembeli' AND id_produk='$id_produk'");
+    } else {
+        mysqli_query($koneksi, "DELETE FROM keranjang WHERE id_produk='$id_produk' AND id_pembeli='$id_pembeli'");
     }
 
     header("Location: index.php?page=pembeli/keranjang");
     exit;
 }
 if (isset($_GET['hapus_cart'])) {
-    $id = $_GET['hapus_cart'];
+    $id_produk = $_GET['hapus_cart'];
+    $id_pembeli = $_SESSION['id'];
 
-    unset($_SESSION['cart'][$id]);
+    mysqli_query($koneksi, "DELETE FROM keranjang WHERE id_produk='$id_produk' AND id_pembeli='$id_pembeli'");
 
     header("Location: index.php?page=pembeli/keranjang");
     exit;
