@@ -565,18 +565,7 @@ NAVBAR
     text-decoration: none;
     flex-shrink: 0;
 }
- 
-.navbar-brand-icon {
-    width: 34px;
-    height: 34px;
-    background: linear-gradient(135deg, #16a34a, #22c55e);
-    border-radius: 9px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
- 
+  
 .navbar-brand-icon svg {
     width: 18px;
     height: 18px;
@@ -761,18 +750,7 @@ NAVBAR
     align-items: center;
     gap: 10px;
 }
- 
-.footer-brand-icon {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, #16a34a, #22c55e);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
- 
+  
 .footer-brand-icon svg {
     width: 16px;
     height: 16px;
