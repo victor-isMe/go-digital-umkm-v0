@@ -4,15 +4,16 @@
 
             <h3>Register Akun</h3>
 
-            <label>
-                <input type="radio" name="role" value="pembeli" checked onclick="toggleForm()"> Pembeli
-            </label>
-            <label>
-                <input type="radio" name="role" value="penjual" onclick="toggleForm()"> Penjual
-            </label>
+            <div class="role-switch">
+                <input id="penjual" type="radio" name="role" value="penjual" onclick="toggleForm()">
+                <label for="penjual">Penjual</label>
 
-            <br><br>
+                <input id="pembeli" type="radio" name="role" value="pembeli" checked onclick="toggleForm()">
+                <label for="pembeli">Pembeli</label>
+            </div>
 
+            <br>
+            
             <div id="formPembeli">
                 <label for="nama">Nama</label><br>
                 <input type="text" name="nama" required><br>

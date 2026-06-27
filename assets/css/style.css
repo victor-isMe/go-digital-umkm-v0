@@ -118,7 +118,7 @@ body {
 ============================================================ */
 
 .login-box {
-    width: 380px;
+    width: 600px;
     margin: 120px auto;
     background: white;
     padding: 45px;
@@ -133,6 +133,7 @@ body {
 }
 
 .login-box input {
+    width: 100%;
     padding: 12px;
     border-radius: 10px;
     border: 1px solid #e2e8f0;
@@ -147,6 +148,38 @@ body {
 
 .login-form button {
     margin-top: 20px;
+}
+
+.role-switch {
+    display: flex;
+    background: #ecfdf5;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.role-switch input {
+    display: none;
+}
+.role-switch label {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.1s;
+}
+#penjual:checked + label {
+    background: #ccc;
+}
+#pembeli:checked + label {
+    background: #ccc;
+}
+#penjual:checked + label, #pembeli:checked + label {
+    background: #16a34a;
+}
+input[type="radio"]:checked + label {
+    background: #16a34a;
+    color: white;
+    font-weight: bold;
 }
 
 /* ============================================================
