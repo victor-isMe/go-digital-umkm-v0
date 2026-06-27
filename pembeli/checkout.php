@@ -85,6 +85,17 @@ foreach ($checkout_items as $id => $qty) {
     ];
 }
 
+$metode_bayar_seller = [];
+if (!empty($items)) {
+    $id_penjual = $items[0]['id_penjual'];
+    $id_penjual_esc = mysqli_real_escape_string($koneksi, $id_penjual);
+
+    $query_metode = mysqli_query($koneksi, "SELECT * FROM metode_pembayaran WHERE id_penjual='$id_penjual_esc' ORDER BY metode, provider");
+    while ($row = mysqli_fetch_assoc($query_metode)) {
+        $metode_bayar_seller[] = $row;
+    }
+}
+
 if (isset($_POST['checkout'])) {
     $nama_post  = mysqli_real_escape_string($koneksi, $_POST['nama']);
     $alamat_post= mysqli_real_escape_string($koneksi, $_POST['alamat']);
@@ -232,6 +243,19 @@ if (isset($_POST['checkout'])) {
 .metode-option input[type="radio"] { accent-color: #16a34a; }
 .metode-label { font-size: 13px; font-weight: 500; color: #374151; }
  
+/* INFO REKENING TUJUAN PEMBAYARAN */
+.rekening-info {
+    display: none;
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    border-radius: 10px;
+}
+.rekening-info.show {
+    display: block;
+}
+
 /* UPLOAD BUKTI */
 .bukti-box {
     display: none;
@@ -376,18 +400,60 @@ if (isset($_POST['checkout'])) {
                 </div>
                 <div class="co-card-body">
                     <div class="metode-grid">
-                        <label class="metode-option">
-                            <input type="radio" name="bayar" value="Transfer Bank" required onchange="handleMetode(this.value)">
-                            <span class="metode-label">🏦 Transfer Bank</span>
-                        </label>
-                        <label class="metode-option">
-                            <input type="radio" name="bayar" value="E-Wallet" onchange="handleMetode(this.value)">
-                            <span class="metode-label">📱 E-Wallet</span>
-                        </label>
-                        <label class="metode-option">
-                            <input type="radio" name="bayar" value="COD" onchange="handleMetode(this.value)">
-                            <span class="metode-label">💵 COD (Bayar di Tempat)</span>
-                        </label>
+
+                        <?php if (empty($metode_bayar_seller)): ?>
+                            <div style="font-size: 12px; color: #94a3b8; padding: 4px 0 8px;">
+                                Penjual belum menambahkan metode transfer. Hanya tersedia COD.
+                            </div>
+                            <label class="metode-option">
+                                <input type="radio" name="bayar" value="COD" onchange="handleMetode(this.value, null, null)" required checked>
+                                <span class="metode-label">💵 COD (Bayar di Tempat)</span>
+                            </label>
+                        <?php else: ?>
+                            <?php foreach ($metode_bayar_seller as $i => $m): 
+                                $icon       = $m['metode'] === 'bank' ? '🏦' : '📱';
+                                $tipe_label = $m['metode'] === 'bank' ? 'Transfer Bank' : 'E-Wallet';
+
+                                $data_val = htmlspecialchars(json_encode([
+                                    'provider'   => $m['provider'],
+                                    'nomor_akun' => $m['nomor_akun'],
+                                    'nama_akun'  => $m['nama_akun'],
+                                    'metode'     => $m['metode'],
+                                ]), ENT_QUOTES);
+                            ?>
+                            <label class="metode-option">
+                                <input type="radio" name="bayar" 
+                                    value="<?= htmlspecialchars($m['metode']) ?>"
+                                    data-rekening="<?= $data_val ?>" 
+                                    required 
+                                    onchange="handleMetode('transfer', this)">
+                                <div style="flex: 1;">
+                                    <div class="metode-label">
+                                        <?= $icon ?> <strong><?= htmlspecialchars($m['provider']) ?></strong>
+                                        <span style="font-size: 11px;color: #94a3b8;font-weight:400;margin-left:4px;"><?= $tipe_label ?></span>
+                                    </div>
+                                    <div style="font-size: 11px;color:#64748b;margin-top:2px;">
+                                        <?= htmlspecialchars($m['nomor_akun']) ?>
+                                        . <?= htmlspecialchars($m['nama_akun']) ?>
+                                    </div>
+                                </div>
+                            </label>
+                            <?php endforeach; ?>
+
+                            <label class="metode-option">
+                                <input type="radio" name="bayar" value="COD" onchange="handleMetode(this.value, this)">
+                                <span class="metode-label">💵 COD (Bayar di Tempat)</span>
+                            </label>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="rekening-info" id="rekeningInfo">
+                        <div style="font-size: 11px;font-weight:600;color:#15803d;margin-bottom:6px;">
+                            Transfer ke: 
+                        </div>
+                        <div style="font-size: 13px;font-weight:700;color:#1e293b;" id="rekeningProvider"></div>
+                        <div style="font-size: 13px;color:#374151;margin-top:2px;" id="rekeningNomor"></div>
+                        <div style="font-size: 11px;color:#64748b;margin-top:1px;">a/n <span id="rekeningNama"></span></div>
                     </div>
  
                     <!-- Upload bukti (muncul untuk Transfer Bank & E-Wallet) -->
@@ -445,16 +511,30 @@ if (isset($_POST['checkout'])) {
 </div>
  
 <script>
-function handleMetode(val) {
+function handleMetode(tipe, radio) {
     const bukti  = document.getElementById('buktiBox');
     const cod    = document.getElementById('codInfo');
     const input  = document.getElementById('buktiInput');
+    const rekeningInfo = document.getElementById('rekeningInfo');
+
+    const isCOD = (tipe === 'COD');
  
-    bukti.classList.toggle('show', val !== 'COD');
-    cod.classList.toggle('show', val === 'COD');
- 
-    // Hapus required saat COD, tambahkan saat non-COD
-    input.required = (val !== 'COD');
+    bukti.classList.toggle('show', !isCOD);
+    cod.classList.toggle('show', isCOD);
+    input.required = !isCOD;
+
+    if (isCOD || !radio) {
+        rekeningInfo.classList.remove('show');
+        return;
+    }
+
+    const rekening = JSON.parse(radio.dataset.rekening || '{}');
+
+    document.getElementById('rekeningProvider').textContent = rekening.provider || '';
+    document.getElementById('rekeningNomor').textContent = rekening.nomor_akun || '';
+    document.getElementById('rekeningNama').textContent = rekening.nama_akun || '';
+
+    rekeningInfo.classList.add('show');
 }
  
 function previewBukti(input) {
