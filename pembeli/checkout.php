@@ -11,7 +11,7 @@ $alamat     = $_SESSION['alamat'] ?? '';
 $is_buy_now = false;
 $checkout_items = []; // [id_produk => qty]
 
-if (isset($_GET['buy_now'])) {
+if (isset($_GET['buy_now']) && $_SESSION['role'] === 'pembeli') {
     // Beli langsung dari halaman produk
     $is_buy_now = true;
     $id_produk  = (int)$_GET['buy_now'];

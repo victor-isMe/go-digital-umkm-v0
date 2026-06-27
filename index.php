@@ -65,7 +65,7 @@ function db_cart_qty ($koneksi, $id_pembeli, $id_produk) {
 }
 
 if (isset($_GET['add_cart'])) {
-    if (isset($_SESSION['login'])) {
+    if (isset($_SESSION['login']) && $_SESSION['role'] === 'pembeli') {
         $id_produk = $_GET['add_cart'];
         $id_pembeli = $_SESSION['id'];
 
