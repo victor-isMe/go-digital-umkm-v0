@@ -1619,27 +1619,6 @@ NAVBAR
     margin-top: 1px;
 }
  
-/* LINKS */
-.footer-links {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
- 
-.footer-links a {
-    padding: 5px 12px;
-    border-radius: 7px;
-    font-size: 13px;
-    color: #64748b;
-    text-decoration: none;
-    transition: background 0.15s, color 0.15s;
-}
- 
-.footer-links a:hover {
-    background: #f0fdf4;
-    color: #16a34a;
-}
- 
 /* COPYRIGHT */
 .footer-copy {
     font-size: 12px;
@@ -1928,11 +1907,6 @@ NAVBAR
         text-align: center;
         gap: 12px;
         padding: 24px 20px 18px;
-    }
- 
-    .footer-links {
-        justify-content: center;
-        flex-wrap: wrap;
     }
 }
 
