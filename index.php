@@ -124,11 +124,6 @@ if (isset($_GET['hapus_cart'])) {
     exit;
 }
 
-if (isset($_GET['hapus'])) {
-    $id = $_GET['hapus'];
-    mysqli_query($koneksi, "DELETE FROM produk WHERE id_produk='$id'");
-    echo "<script>location='index.php?page=products-admin'</script>";
-}
 ?>
 
 <!DOCTYPE html>

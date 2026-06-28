@@ -1,8 +1,7 @@
 <?php
-require_once 'config/database.php';
 
+$id_penjual = $_SESSION["id"];
 $id = $_GET['id'];
-$id_penjual = $_SESSION['id'];
 $result = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id' AND id_penjual='$id_penjual'");
 $row = mysqli_fetch_assoc($result);
 
@@ -13,17 +12,6 @@ if (!$row) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Produk</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body>
     <div>
         <a href="index.php?page=products-admin" class="btn btn-danger">&lt;Kembali</a>
         <h1 class="text-center">Edit Produk</h1>
@@ -83,5 +71,3 @@ if (!$row) {
         }
     }
     ?>
-</body>
-</html>
