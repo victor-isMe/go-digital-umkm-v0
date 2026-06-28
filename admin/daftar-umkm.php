@@ -29,8 +29,8 @@ while ($r = mysqli_fetch_assoc($query)) {
 
     <div class="ap-header">
         <div>
-            <div class="ap-title">Nonaktifkan/Aktifkan akun UMKM</div>
-            <div class="ap-subtitle">Atur status seluruh akun penjual yang terdaftar</div>
+            <div class="ap-title">Daftar akun UMKM</div>
+            <div class="ap-subtitle">Pantau seluruh akun penjual yang terdaftar</div>
         </div>
     </div>
 
@@ -81,7 +81,7 @@ while ($r = mysqli_fetch_assoc($query)) {
                         <th>Pemilik</th>
                         <th>Produk</th>
                         <th>Status</th>
-                        <th>Aksi</th>
+                        <!-- <th>Detail</th> -->
                     </tr>
                 </thead>
                 <tbody id="tableBody">
@@ -89,7 +89,6 @@ while ($r = mysqli_fetch_assoc($query)) {
                     $is_aktif   = $data['status'] === 'aktif';
                     $jml        = (int) $data['jumlah_produk'];
                     $cari_str   = strtolower($data['nama_toko'] . ' ' . $data['nama_penjual']);
-                    $status_toggle = $is_aktif ? 'nonaktif' : 'aktif';
                 ?>
                 <tr data-nama="<?= htmlspecialchars($cari_str) ?>"
                     data-status="<?= $data['status'] ?>">
@@ -116,23 +115,7 @@ while ($r = mysqli_fetch_assoc($query)) {
                         </span>
                     </td>
 
-                    <td>
-                        <div class="aksi-group">
-                            <?php if ($is_aktif): ?>
-                                <a href="index.php?page=admin/nonaktifkan-umkm&toggle_status=<?= $data['id_penjual'] ?>&status=nonaktif"
-                                   class="btn-suspend"
-                                   onclick="return confirm('Nonaktifkan akun <?= addslashes($data['nama_toko']) ?>?')">
-                                   Nonaktifkan
-                                </a>
-                            <?php else: ?>
-                                <a href="index.php?page=admin/nonaktifkan-umkm&toggle_status=<?= $data['id_penjual'] ?>&status=aktif"
-                                   class="btn-aktifkan"
-                                   onclick="return confirm('Aktifkan kembali akun <?= addslashes($data['nama_toko']) ?>?')">
-                                   Aktifkan
-                                </a>
-                            <?php endif; ?>
-                        </div>
-                    </td>
+                    <!-- <td></td> -->
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -173,21 +156,7 @@ while ($r = mysqli_fetch_assoc($query)) {
                     <span class="produk-count <?= $jml === 0 ? 'zero' : '' ?>"><?= $jml ?> produk</span>
                 </div>
 
-                <div class="mc-foot">
-                    <?php if ($is_aktif): ?>
-                        <a href="index.php?page=admin/nonaktifkan-umkm&toggle_status=<?= $data['id_penjual'] ?>&status=nonaktif"
-                           class="btn-suspend"
-                           onclick="return confirm('Nonaktifkan akun ini?')">
-                            Nonaktifkan
-                        </a>
-                    <?php else: ?>
-                        <a href="index.php?page=admin/nonaktifkan-umkm&toggle_status=<?= $data['id_penjual'] ?>&status=aktif"
-                           class="btn-aktifkan"
-                           onclick="return confirm('Aktifkan akun ini?')">
-                           Aktifkan
-                        </a>
-                    <?php endif; ?>
-                </div>
+                <!-- <div class="mc-foot"></div> -->
             </div>
         <?php endforeach; ?>
         </div>

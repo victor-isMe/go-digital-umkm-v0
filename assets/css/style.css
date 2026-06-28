@@ -1463,7 +1463,7 @@ NAVBAR
 .modal-confirm:hover { background: #b91c1c; }
 
 /* ============================================================
-   NONAKTIFKAN UMKM - ADMIN
+   NONAKTIFKAN UMKM & DAFTAR UMKM - ADMIN
 ============================================================ */
 /* ── BASE ─────────────────────────────────────────────────────── */
 .ap-page { padding: 24px 28px; background: #f1f5f9; min-height: 100vh; font-family: 'Poppins', sans-serif; }
@@ -1578,7 +1578,6 @@ NAVBAR
 
 /* ── EMPTY STATE ──────────────────────────────────────────────── */
 .ap-empty { padding: 56px 20px; text-align: center; }
-.ap-empty-icon { font-size: 40px; margin-bottom: 12px; }
 .ap-empty-text { font-size: 14px; font-weight: 500; color: #64748b; }
 .ap-empty-sub  { font-size: 12px; color: #94a3b8; margin-top: 4px; }
 
@@ -1712,7 +1711,7 @@ NAVBAR
     /* KELOLA PRODUK - PENJUAL */
     .kp-page { padding: 20px 16px; }
 
-    /* NONAKTIFKAN UMKM - ADMIN */
+    /* NONAKTIFKAN UMKM & DAFTAR UMKM - ADMIN */
     .ap-page { padding: 20px 16px; }
 }
 
@@ -1842,7 +1841,7 @@ NAVBAR
     .vp-table-wrap    { display: none; }
     .vp-mobile-list   { display: block; }
 
-    /* NONAKTIFKAN UMKM - ADMIN */
+    /* NONAKTIFKAN UMKM & DAFTAR UMKM - ADMIN */
     .ap-page        { padding: 14px 12px; }
     .ap-title       { font-size: 17px; }
     .stat-row       { grid-template-columns: 1fr 1fr; }
@@ -2024,7 +2023,7 @@ NAVBAR
     .ftab       { padding: 6px 9px; font-size: 11px; }
     .mc-foot    { flex-direction: column; }
 
-    /* NONAKTIFKAN UMKM - ADMIN */
+    /* NONAKTIFKAN UMKM & DAFTAR UMKM - ADMIN */
     .stat-row  { grid-template-columns: 1fr; }
     .mc-foot   { flex-direction: column; }
 }
