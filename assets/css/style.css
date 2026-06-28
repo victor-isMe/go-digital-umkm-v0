@@ -767,7 +767,6 @@ NAVBAR
 }
  
 .footer-inner {
-    max-width: 1400px;
     margin: 0 auto;
     padding: 28px 28px 20px;
     display: flex;
@@ -782,11 +781,6 @@ NAVBAR
     display: flex;
     align-items: center;
     gap: 10px;
-}
-  
-.footer-brand-icon svg {
-    width: 16px;
-    height: 16px;
 }
  
 .footer-brand-name {

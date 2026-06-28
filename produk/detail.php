@@ -5,6 +5,9 @@ $produk = mysqli_fetch_assoc($query);
 ?>
 
 <div class="container mt-5">
+    <div style="margin-bottom:16px;">
+        <a href="index.php?page=produk" style="font-size:12px;color:#94a3b8;text-decoration:none;">← Kembali ke halaman produk</a>
+    </div>
     <div class="card shadow p-4">
         <div class="row">
             <div class="col-md-5 text-center">
