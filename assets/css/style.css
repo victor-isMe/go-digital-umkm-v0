@@ -1463,6 +1463,126 @@ NAVBAR
 .modal-confirm:hover { background: #b91c1c; }
 
 /* ============================================================
+   NONAKTIFKAN UMKM - ADMIN
+============================================================ */
+/* ── BASE ─────────────────────────────────────────────────────── */
+.ap-page { padding: 24px 28px; background: #f1f5f9; min-height: 100vh; font-family: 'Poppins', sans-serif; }
+
+/* ── HEADER ───────────────────────────────────────────────────── */
+.ap-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+.ap-title    { font-size: 20px; font-weight: 600; color: #1a2332; }
+.ap-subtitle { font-size: 13px; color: #64748b; margin-top: 2px; }
+
+/* ── STAT CARDS ───────────────────────────────────────────────── */
+.stat-row  { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+.stat-card { background: #fff; border-radius: 12px; border: 0.5px solid #e8edf2; padding: 14px 18px; }
+.stat-label{ font-size: 11px; font-weight: 600; color: #64748b; letter-spacing: .4px; margin-bottom: 4px; }
+.stat-val  { font-size: 22px; font-weight: 600; color: #1a2332; }
+.stat-val.green { color: #16a34a; }
+.stat-val.red   { color: #dc2626; }
+
+/* ── CARD & TOOLBAR ───────────────────────────────────────────── */
+.ap-card { background: #fff; border-radius: 16px; border: 1px solid #e8edf2; overflow: hidden; }
+.ap-toolbar {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 20px; border-bottom: 1px solid #f1f5f9; flex-wrap: wrap;
+}
+.ap-search { position: relative; flex: 1; min-width: 160px; max-width: 280px; }
+.ap-search input {
+    width: 100%; padding: 8px 12px 8px 34px;
+    border-radius: 9px; border: 1.5px solid #e2e8f0;
+    font-size: 13px; font-family: inherit; color: #1a2332;
+    background: #fafbfc; outline: none; transition: border-color .15s;
+}
+.ap-search input:focus { border-color: #16a34a; background: #fff; }
+.ap-search::before {
+    content: '\2315'; position: absolute; left: 10px;
+    top: 43%; transform: translateY(-50%); font-size: 24px; pointer-events: none;
+}
+.filter-tabs { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+.ftab {
+    padding: 7px 13px; border-radius: 8px; border: 1.5px solid #e2e8f0;
+    background: #fafbfc; font-size: 12px; font-weight: 500; color: #64748b;
+    cursor: pointer; transition: all .15s; font-family: inherit;
+}
+.ftab.active, .ftab:hover { border-color: #16a34a; background: #f0fdf4; color: #15803d; }
+
+/* ── TABLE ────────────────────────────────────────────────────── */
+.ap-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.ap-table { width: 100%; border-collapse: collapse; min-width: 680px; }
+.ap-table thead tr { background: #fafbfc; border-bottom: 1.5px solid #f1f5f9; }
+.ap-table th {
+    padding: 11px 16px; font-size: 11px; font-weight: 600;
+    color: #64748b; letter-spacing: .5px; text-align: left; white-space: nowrap;
+}
+.ap-table tbody tr { border-bottom: 1px solid #f8fafc; transition: background .12s; }
+.ap-table tbody tr:last-child { border-bottom: none; }
+.ap-table tbody tr:hover { background: #fafffe; }
+.ap-table td { padding: 12px 16px; font-size: 13px; color: #1a2332; vertical-align: middle; }
+
+/* ── CELLS ────────────────────────────────────────────────────── */
+.toko-name   { font-weight: 600; color: #1a2332; }
+.toko-id-sub { font-size: 11px; color: #94a3b8; margin-top: 1px; }
+.owner-name  { font-weight: 500; }
+.owner-email { font-size: 11px; color: #64748b; margin-top: 1px; }
+.produk-count {
+    display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px;
+    border-radius: 20px; font-size: 11px; font-weight: 600;
+    background: #f0fdf4; color: #15803d;
+}
+.produk-count.zero { background: #f8fafc; color: #94a3b8; }
+
+/* ── STATUS BADGE ─────────────────────────────────────────────── */
+.status-badge {
+    display: inline-flex; align-items: center; gap: 5px; padding: 5px 11px;
+    border-radius: 20px; font-size: 11px; font-weight: 600; white-space: nowrap;
+}
+.status-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.badge-aktif    { background: #f0fdf4; color: #15803d; }
+.badge-aktif::before    { background: #16a34a; }
+.badge-nonaktif { background: #fef2f2; color: #dc2626; }
+.badge-nonaktif::before { background: #ef4444; }
+
+/* ── TOMBOL AKSI ──────────────────────────────────────────────── */
+.aksi-group { display: flex; align-items: center; gap: 6px; }
+.btn-detail {
+    display: inline-flex; align-items: center; gap: 4px; padding: 6px 11px;
+    border-radius: 8px; border: 1.5px solid #e2e8f0; background: #fafbfc;
+    color: #475569; font-size: 12px; font-weight: 500; text-decoration: none;
+    transition: all .15s; white-space: nowrap; cursor: pointer; font-family: inherit;
+}
+.btn-detail:hover { border-color: #16a34a; color: #15803d; background: #f0fdf4; }
+.btn-suspend {
+    display: inline-flex; align-items: center; gap: 4px; padding: 6px 11px;
+    border-radius: 8px; border: 1.5px solid #fecaca; background: #fff5f5;
+    color: #dc2626; font-size: 12px; font-weight: 500;
+    transition: all .15s; white-space: nowrap; cursor: pointer; font-family: inherit; text-decoration: none;
+}
+.btn-suspend:hover { background: #fef2f2; }
+.btn-aktifkan {
+    display: inline-flex; align-items: center; gap: 4px; padding: 6px 11px;
+    border-radius: 8px; border: 1.5px solid #bbf7d0; background: #f0fdf4;
+    color: #15803d; font-size: 12px; font-weight: 500;
+    transition: all .15s; white-space: nowrap; cursor: pointer; font-family: inherit; text-decoration: none;
+}
+.btn-aktifkan:hover { background: #dcfce7; }
+
+/* ── MOBILE CARD LIST ─────────────────────────────────────────── */
+.ap-mobile-list { display: none; padding: 12px; }
+.ap-mobile-card { background: #fff; border: 1px solid #e8edf2; border-radius: 12px; padding: 14px; margin-bottom: 10px; }
+.mc-head  { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; }
+.mc-row   { display: flex; justify-content: space-between; align-items: center; font-size: 13px; margin-bottom: 7px; gap: 8px; }
+.mc-label { color: #64748b; font-size: 11px; font-weight: 600; white-space: nowrap; }
+.mc-foot  { display: flex; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #f1f5f9; }
+.mc-foot a, .mc-foot .btn-suspend, .mc-foot .btn-aktifkan { flex: 1; justify-content: center; }
+
+/* ── EMPTY STATE ──────────────────────────────────────────────── */
+.ap-empty { padding: 56px 20px; text-align: center; }
+.ap-empty-icon { font-size: 40px; margin-bottom: 12px; }
+.ap-empty-text { font-size: 14px; font-weight: 500; color: #64748b; }
+.ap-empty-sub  { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+
+/* ============================================================
    FOOTER
 ============================================================ */
 .footer-umkm {
@@ -1556,8 +1676,6 @@ NAVBAR
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* KELOLA PRODUK - PENJUAL */
-    .kp-page { padding: 20px 16px; }
 }
 
 /* ============================================================
@@ -1590,6 +1708,12 @@ NAVBAR
     /* HALAMAN VERIF BAYAR - PENJUAL */
     .vp-page    { padding: 20px 16px; }
     .vp-table td, .vp-table th { padding: 10px 12px; }
+
+    /* KELOLA PRODUK - PENJUAL */
+    .kp-page { padding: 20px 16px; }
+
+    /* NONAKTIFKAN UMKM - ADMIN */
+    .ap-page { padding: 20px 16px; }
 }
 
 /* ============================================================
@@ -1717,6 +1841,17 @@ NAVBAR
     /* Sembunyikan tabel, tampilkan card */
     .vp-table-wrap    { display: none; }
     .vp-mobile-list   { display: block; }
+
+    /* NONAKTIFKAN UMKM - ADMIN */
+    .ap-page        { padding: 14px 12px; }
+    .ap-title       { font-size: 17px; }
+    .stat-row       { grid-template-columns: 1fr 1fr; }
+    .ap-toolbar     { padding: 10px 12px; }
+    .ap-search      { max-width: 100%; flex: 1 1 100%; }
+    .filter-tabs    { margin-left: 0; width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; }
+    .ftab           { flex-shrink: 0; }
+    .ap-table-wrap  { display: none; }
+    .ap-mobile-list { display: block; }
 
     /* NAVBAR */
     .navbar-umkm-inner {
@@ -1888,4 +2023,8 @@ NAVBAR
     .btn-tambah { padding: 9px 14px; font-size: 12px; }
     .ftab       { padding: 6px 9px; font-size: 11px; }
     .mc-foot    { flex-direction: column; }
+
+    /* NONAKTIFKAN UMKM - ADMIN */
+    .stat-row  { grid-template-columns: 1fr; }
+    .mc-foot   { flex-direction: column; }
 }
