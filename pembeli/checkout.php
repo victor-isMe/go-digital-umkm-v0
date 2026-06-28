@@ -131,7 +131,6 @@ if (isset($_POST['checkout'])) {
         }
 
         if (empty($post_error)) {
-            $status_bayar = ($bayar === 'COD') ? 'belum bayar' : 'sudah_bayar';
             $bukti_db = $bukti_bayar ? mysqli_real_escape_string($koneksi, $bukti_bayar) : null;
             $bukti_sql = $bukti_db ? "'$bukti_db'" : "NULL";
 
@@ -144,10 +143,10 @@ if (isset($_POST['checkout'])) {
                 $total_seller = array_sum(array_column($seller_items, 'subtotal'));
                 mysqli_query($koneksi, "INSERT INTO pesanan
                     (id_pembeli, nama_pemesan, alamat_pemesan, metode_bayar,
-                    total_harga, id_penjual, status, status_bayar, bukti_bayar)
+                    total_harga, id_penjual, status, bukti_bayar)
                     VALUES
                     ('$id_pembeli', '$nama_post', '$alamat_post', '$bayar',
-                    '$total_seller', '$seller_id', 'diproses', '$status_bayar', $bukti_sql)");
+                    '$total_seller', '$seller_id', 'diproses', $bukti_sql)");
                 $id_pesanan = mysqli_insert_id($koneksi);
 
                 foreach ($seller_items as $item) {

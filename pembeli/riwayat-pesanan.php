@@ -108,9 +108,9 @@ $result = mysqli_query($koneksi, "
             };
 
             // Badge status bayar
-            $badge_bayar = match($ps['status_bayar']) {
-                'belum bayar'          => '<span class="badge badge-belum">💸 Belum Bayar</span>',
-                'sudah bayar'          => '<span class="badge badge-lunas">✅ Lunas</span>',
+            $badge_bayar = match($ps['verif_bayar']) {
+                'belum'          => '<span class="badge badge-belum">💸 Belum Terverifikasi </span>',
+                'sudah'          => '<span class="badge badge-lunas">✅ Lunas</span>',
                 default                => '',
             };
 
@@ -130,7 +130,7 @@ $result = mysqli_query($koneksi, "
                     <?= $badge_status ?>
                     <?= $badge_bayar ?>
                 </div>
-                <div class="pesanan-meta"><?= $tgl ?> · #<?= $ps['id_pesanan'] ?> · <?= htmlspecialchars($ps['metode_bayar']) ?></div>
+                <div class="pesanan-meta"><?= $tgl ?> · <?= htmlspecialchars($ps['metode_bayar']) ?></div>
             </div>
 
             <!-- ITEM -->
