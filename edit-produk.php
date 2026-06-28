@@ -13,11 +13,12 @@ if (!$row) {
 ?>
 
     <div>
-        <a href="index.php?page=products-admin" class="btn btn-danger">&lt;Kembali</a>
-        <h1 class="text-center">Edit Produk</h1>
+        <a href="index.php?page=products-admin" class="btn-dashboard-solid">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>    Kembali
+        </a>
     </div>
     <form class="form" method="POST" enctype="multipart/form-data">
-        <h2>Edit Produk</h2>
+        <h2 class="text-center">Edit Produk</h2>
 
         <label>Nama Produk</label>
         <input type="text" name="name" value="<?= $row['nama']; ?>">

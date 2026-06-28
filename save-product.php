@@ -21,7 +21,7 @@ if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFile)) {
 
     mysqli_stmt_execute($stmt);
 
-    header("Location: index.php?page=dashboard");
+    header("Location: index.php?page=products-admin");
     exit;
 }else {
     echo "Produk gagal ditambahkan!";

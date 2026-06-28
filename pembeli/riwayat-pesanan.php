@@ -80,6 +80,12 @@ $result = mysqli_query($koneksi, "
 </style>
 
 <div class="riwayat-page">
+
+    <a href="index.php?page=dashboard" class="btn-dashboard-ghost mb-3">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Kembali ke dashboard
+    </a>
+
     <h2 class="riwayat-title">Riwayat Pesanan</h2>
 
     <?php if (mysqli_num_rows($result) == 0): ?>

@@ -41,6 +41,11 @@ while ($r = mysqli_fetch_assoc($result)) $rows[] = $r;
 
 <div class="kp-page">
 
+    <a href="index.php?page=dashboard" class="btn-dashboard-ghost">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Kembali ke dashboard
+    </a>
+
     <div class="kp-header">
         <div>
             <div class="kp-title">Kelola produk</div>

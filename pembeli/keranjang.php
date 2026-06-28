@@ -297,11 +297,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     box-shadow: 0 4px 14px rgba(22,163,74,0.35);
     color: #fff;
 }
-.btn-checkout-toko svg {
-    width: 15px; height: 15px;
-    stroke: currentColor; fill: none; stroke-width: 2;
-    stroke-linecap: round; stroke-linejoin: round;
-}
 .btn-checkout-toko:disabled,
 .btn-checkout-toko.disabled {
     opacity: 0.5;
@@ -344,6 +339,10 @@ while ($row = mysqli_fetch_assoc($result)) {
 <div class="keranjang-page">
 
     <div class="keranjang-header">
+        <a href="index.php?page=dashboard" class="btn-dashboard-solid mb-3">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Kembali ke dashboard
+        </a>        
         <h2 class="keranjang-title">Keranjang Belanja</h2>
     </div>
 
@@ -354,7 +353,6 @@ while ($row = mysqli_fetch_assoc($result)) {
             <h5>Keranjang masih kosong</h5>
             <p>Yuk belanja produk di UMKM pilihan kamu!</p>
             <a href="index.php?page=produk" class="btn-checkout-toko" style="display:inline-flex;">
-                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 Jelajahi Produk
             </a>
         </div>

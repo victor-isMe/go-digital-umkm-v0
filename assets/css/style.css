@@ -68,6 +68,35 @@ body {
     color: #16a34a;
 }
 
+/* BUTTON KEMBALI */
+/* SVG icon */
+.btn-dashboard svg, .btn-dashboard-solid svg,
+.btn-dashboard-ghost svg, .btn-dashboard-icon svg {
+    width: 16px; height: 16px; stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;
+}
+/* btn - ghost */
+.btn-dashboard-ghost {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 12px; border-radius: 8px;
+    border: none; background: none; color: #64748b;
+    font-size: 13px; font-weight: 500;
+    font-family: 'Poppins', sans-serif; text-decoration: none;
+    cursor: pointer; transition: all .15s; white-space: nowrap; line-height: 1;
+}
+.btn-dashboard-ghost:hover { color: #16a34a; background: #f0fdf4; }
+
+/* btn - Solid hijau */
+.btn-dashboard-solid {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 9px 16px; border-radius: 10px;
+    border: none; background: #16a34a; color: #fff;
+    font-size: 13px; font-weight: 600;
+    font-family: 'Poppins', sans-serif; text-decoration: none;
+    cursor: pointer; transition: all .15s; white-space: nowrap; line-height: 1;
+}
+.btn-dashboard-solid:hover { background: #15803d; transform: translateY(-1px); }
+
 /* ============================================================
    SIDEBAR 
 ============================================================ */

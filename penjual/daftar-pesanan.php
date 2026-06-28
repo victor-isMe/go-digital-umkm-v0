@@ -7,6 +7,11 @@ $total_pesanan = mysqli_num_rows($query);
 
 <div class="orders-page">
 
+    <a href="index.php?page=dashboard" class="btn-dashboard-ghost">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Kembali ke dashboard
+    </a>
+
     <div class="orders-header">
         <div>
             <div class="orders-title">Daftar pesanan</div>

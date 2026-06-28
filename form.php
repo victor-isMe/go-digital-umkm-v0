@@ -1,3 +1,7 @@
+<a href="index.php?page=products-admin" class="btn-dashboard-solid">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>    Kembali
+</a>
+
 <form class="form" action="save-product.php" method="POST" enctype="multipart/form-data">
     <?php $id_penjual = $_SESSION['id']; ?>
 
