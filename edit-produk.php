@@ -2,8 +2,15 @@
 require_once 'config/database.php';
 
 $id = $_GET['id'];
-$result = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
-$row = mysqli_fetch_array($result);
+$id_penjual = $_SESSION['id'];
+$result = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id' AND id_penjual='$id_penjual'");
+$row = mysqli_fetch_assoc($result);
+
+if (!$row) {
+    echo "<script>alert('Produk tidak ditemukan atau Anda tidak memiliki izin untuk mengedit produk ini.');</script>";
+    echo "<script>location='index.php?page=products-admin'</script>";
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

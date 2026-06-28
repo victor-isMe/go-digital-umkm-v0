@@ -1084,6 +1084,12 @@ NAVBAR
 /* Highlight select saat nilainya berubah dari original */
 .status-select.changed { border-color: #16a34a; background: #f0fdf4; color: #15803d; }
 
+/* Option disabled saat select status */
+.status-select option:disabled {
+    color: #cbd5e1;
+    background: #f8fafc;
+}
+
 /* Tombol simpan — tersembunyi by default, muncul hanya saat ada perubahan */
 .btn-save {
     display: inline-flex; align-items: center; gap: 4px;

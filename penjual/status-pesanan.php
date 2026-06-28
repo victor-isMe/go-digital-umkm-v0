@@ -132,6 +132,10 @@ $total_pesanan = mysqli_num_rows($query);
 </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.status-select').forEach(sel => initStatusSelect(sel));
+});
+
 const badgeMap = {
     diproses : 'badge-diproses',
     dikirim  : 'badge-dikirim',
@@ -140,11 +144,24 @@ const badgeMap = {
 const labelMap = { diproses:'Diproses', dikirim:'Dikirim', selesai:'Selesai' };
 
 // Tampilkan/sembunyikan tombol Simpan & highlight select saat nilai berubah
+const status_pesanan = {diproses: 0, dikirim: 1, selesai: 2};
+
 function onStatusChange(sel) {
     const id      = sel.dataset.id;
-    const changed = sel.value !== sel.dataset.original;
+    const current = sel.dataset.original;
+    const changed = sel.value !== current;
+
     sel.classList.toggle('changed', changed);
     document.getElementById('btn-' + id).classList.toggle('visible', changed);
+}
+
+function initStatusSelect(sel) {
+    const currentOrder = status_pesanan[sel.dataset.original] ?? 0;
+
+    Array.from(sel.options).forEach(opt => {
+        const optOrder = status_pesanan[opt.value] ?? 0;
+        opt.disabled = optOrder < currentOrder;
+    });
 }
 
 // Filter tab
