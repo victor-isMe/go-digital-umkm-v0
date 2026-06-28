@@ -53,25 +53,31 @@
                 <div class="metode-pembayaran">
                     <label class="section-label">Metode Pembayaran</label>
 
-                    <div class="opsi-metode-pembayaran">
-                        <label>
-                            <input type="checkbox" id="cbBank" name="bank" value="1" onchange="togglePaymentBlock('bank')"> Transfer Bank
-                        </label>
-                        <label>
-                            <input type="checkbox" id="cbEwallet" name="ewallet" value="1" onchange="togglePaymentBlock('ewallet')">E-Wallet
-                        </label>
+                    <div class="mp-toggle-row">
+                        <div class="mp-toggle">
+                            <input type="checkbox" id="cbBank" name="bank" value="1" onchange="togglePaymentBlock('bank')">
+                            <label for="cbBank">Transfer Bank</label>
+                        </div>
+                        <div class="mp-toggle">
+                            <input type="checkbox" id="cbEwallet" name="ewallet" value="1" onchange="togglePaymentBlock('ewallet')">
+                            <label for="cbEwallet">E-Wallet</label>
+                        </div>
                     </div>
 
                     <div id="blockBank" class="payment-block" style="display: none;">
-                        <p class="block-title">Rekening Bank</p>
+                        <div class="block-header">
+                            <div class="block-label">Rekening Bank</div>
+                        </div>
                         <div id="entriesBank"></div>
-                        <button type="button" onclick="addPaymentEntry('bank')">+ Tambah Rekening</button>
+                        <button class="btn-add-entry" type="button" onclick="addPaymentEntry('bank')">+ Tambah Rekening</button>
                     </div>
 
                     <div id="blockEwallet" class="payment-block" style="display: none;">
-                        <p class="block-title">E-Wallet</p>
+                        <div class="block-header">
+                            <div class="block-label">E-Wallet</div>
+                        </div>
                         <div id="entriesEwallet"></div>
-                        <button type="button" onclick="addPaymentEntry('ewallet')">+ Tambah E-Wallet</button>
+                        <button class="btn-add-entry" type="button" onclick="addPaymentEntry('ewallet')">+ Tambah E-Wallet</button>
                     </div>
                 </div>
             </div>
@@ -169,7 +175,7 @@
                     placeholder="a.n Pemilik Akun"
                     required>
         </div>
-        <button type="button" class="btn btn-danger" onclick="removePaymentEntry('${type}', ${index})">X</button>
+        <button type="button" class="btn-remove-entry" onclick="removePaymentEntry('${type}', ${index})">X</button>
         `;
 
         container.appendChild(row);

@@ -208,6 +208,150 @@ input[type="radio"]:checked + label {
     border: 1px solid #e2e8f0;
 }
 
+/* Register Form */
+.mp-toggle-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.mp-toggle {
+    flex: 1;
+}
+.mp-toggle input[type="checkbox"] {
+    display: none;
+}
+.mp-toggle label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1.5px solid #e2e8f0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    background: #fafbfc;
+    transition: all 0.1s;
+}
+.mp-toggle label:hover {
+    background: #64748b;
+    color: #fff;
+}
+.mp-toggle input:checked + label {
+    border-color: #16a34a;
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+.payment-block {
+    background: #f8fffe;
+    border: 1.5px solid #dcfce7;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 10px;
+}
+.block-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.block-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #15803d;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.block-label::before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #16a34a;
+}
+
+.payment-entry-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 8px;
+    align-items: end;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e8f5e9;
+}
+.payment-entry-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.entry-field label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 4px;
+    display: block;
+}
+.entry-field select, .entry-field input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1.5px solid #e2e8f0;
+    font-size: 12px;
+    font-family: inherit;
+    color: #1a2332;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.entry-field select:focus, .entry-field input:focus {
+    border-color: #16a34a;
+}
+
+.payment-entry-row > .btn-remove-entry {
+    background: none;
+    border: 1.5px solid #fecaca;
+    border-radius: 8px;
+    color: #dc2626;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+.payment-entry-row > .btn-remove-entry:hover {
+    background: #fef2f2;
+}
+
+.btn-add-entry {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    margin-top: 6px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1.5px dashed #86efac;
+    background: transparent;
+    color: #16a34a;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+.btn-add-entry:hover {
+    background: #f0fdf4;
+    border-style: solid;
+}
+
 /* ============================================================
    PRODUK PAGE 
 ============================================================ */
