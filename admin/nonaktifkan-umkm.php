@@ -189,4 +189,11 @@ function setFilter(f, el) {
     el.classList.add('active');
     filterTable();
 }
+
+function filterTable() {
+    document.querySelectorAll('#tableBody tr, .ap-mobile-card').forEach(r => {
+        const show = (activeFilter === 'semua' || r.dataset.status === activeFilter);
+        r.style.display = show ? '' : 'none';
+    });
+}
 </script>
