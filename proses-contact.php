@@ -46,17 +46,8 @@ if (!empty($errors)) {
     exit;
 }
 
-$query_admin = mysqli_query($koneksi, "SELECT * FROM admin LIMIT 1");
-$row_admin = mysqli_fetch_assoc($query_admin);
-
-if (!$row_admin) {
-    $_SESSION['contact_error'] = "Data admin tidak ditemukan.";
-    header("Location: index.php?page=contact");
-    exit;
-}
-
 // ── Kirim email ke admin via PHPMailer ────────────────────────
-$ADMIN_EMAIL = filter_var($row_admin['email'], FILTER_SANITIZE_EMAIL);
+$ADMIN_EMAIL = 'rizayulianarahmawati07@gmail.com';
 
 try {
     $mail = createMailer();
