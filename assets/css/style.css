@@ -20,30 +20,346 @@ body {
 }
 
 /* ============================================================
-   HERO
+   HOME PAGE - GO DIGITAL UMKM
 ============================================================ */
-
-.hero {
-    padding: 32px;
-    background: linear-gradient(180deg, #ecfdf5, #d1fae5);
+ 
+/* ----- HERO ----- */
+.home-hero {
+    background: linear-gradient(180deg, #ecfdf5 0%, #f0fdf4 100%);
+    padding: 56px 28px 0;
 }
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
+ 
+.home-hero-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
 }
-
-.hero span {
+ 
+/* Text */
+.home-hero-text {
+    flex: 1;
+    min-width: 320px;
+    max-width: 560px;
+}
+ 
+.home-hero-text h1 {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #1a2332;
+    margin: 0 0 16px;
+}
+ 
+.home-hero-text h1 span {
     color: #16a34a;
 }
-
-.hero p {
-    color: #16a34a;
-    margin-bottom: 30px;
+ 
+.home-hero-text p {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0 0 28px;
 }
-
-.about {
-    padding: 32px;
+ 
+.home-hero-btn {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+ 
+.btn-hero-primary,
+.btn-hero-outline {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .15s;
+}
+ 
+.btn-hero-primary {
+    background: #16a34a;
+    color: #fff;
+    border: 1.5px solid #16a34a;
+}
+ 
+.btn-hero-primary:hover {
+    background: #15803d;
+}
+ 
+.btn-hero-outline {
+    background: transparent;
+    color: #16a34a;
+    border: 1.5px solid #16a34a;
+}
+ 
+.btn-hero-outline:hover {
+    background: #f0fdf4;
+}
+ 
+/* Visual */
+.home-hero-visual {
+    flex: 1;
+    min-width: 320px;
+    max-width: 560px;
+    position: relative;
+    height: 380px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+ 
+.home-hero-visual img {
+    position: absolute;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+ 
+.hv-dimsum {
+    width: 130px;
+    height: 170px;
+    left: 0;
+    bottom: 10px;
+}
+ 
+.hv-baju {
+    width: 220px;
+    height: 220px;
+    left: 110px;
+    bottom: 40px;
+    z-index: 2;
+}
+ 
+.hv-tas {
+    width: 150px;
+    height: 200px;
+    right: 90px;
+    bottom: 0;
+    z-index: 1;
+}
+ 
+.hv-bunga {
+    width: 110px;
+    height: 160px;
+    right: 0;
+    bottom: 20px;
+}
+ 
+.hv-badge {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    z-index: 3;
+}
+ 
+.hv-badge-icon {
+    background: #f0fdf4;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+ 
+.hv-badge-number {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a2332;
+}
+ 
+.hv-badge-label {
+    font-size: 11px;
+    color: #64748b;
+}
+ 
+/* ----- FEATURE STRIP ----- */
+.home-features {
+    max-width: 1280px;
+    margin: 40px auto 0;
+    background: #fff;
+    border-radius: 18px;
+    padding: 28px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    transform: translateY(28px);
+    position: relative;
+    z-index: 5;
+}
+ 
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+ 
+.feature-icon {
+    background: #f0fdf4;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+ 
+.feature-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a2332;
+    margin-bottom: 2px;
+}
+ 
+.feature-desc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.4;
+}
+ 
+/* ----- GENERIC SECTION ----- */
+.home-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 56px 28px 0;
+}
+ 
+.home-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+ 
+.home-section-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a2332;
+    margin: 0;
+}
+ 
+.lihat-semua {
+    font-size: 13px;
+    font-weight: 600;
+    color: #16a34a;
+    text-decoration: none;
+}
+ 
+.lihat-semua:hover {
+    text-decoration: underline;
+}
+ 
+/* ----- KATEGORI ----- */
+.kategori-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+ 
+.kategori-card {
+    background: #fff;
+    border: 1px solid #e8edf2;
+    border-radius: 14px;
+    padding: 20px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: all .15s;
+}
+ 
+.kategori-card:hover {
+    border-color: #16a34a;
+    box-shadow: 0 4px 14px rgba(22,163,74,0.1);
+}
+ 
+.kategori-icon {
+    font-size: 20px;
+}
+ 
+.kategori-nama {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a2332;
+}
+ 
+/* ----- PRODUK UNGGULAN ----- */
+.produk-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    padding-bottom: 56px;
+}
+ 
+.produk-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border: 1px solid #e8edf2;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all .15s;
+}
+ 
+.produk-card:hover {
+    border-color: #16a34a;
+    box-shadow: 0 6px 18px rgba(22,163,74,0.12);
+}
+ 
+.produk-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+ 
+.produk-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+.produk-info {
+    padding: 12px 14px 14px;
+}
+ 
+.produk-nama {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a2332;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+ 
+.produk-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ 
+.produk-harga {
+    font-size: 13px;
+    font-weight: 700;
+    color: #16a34a;
 }
 
 /* ============================================================
@@ -1662,12 +1978,35 @@ NAVBAR
 @media (max-width: 991.98px) {
 
     /* HERO */
-    .hero {
-        padding: 24px;
+    .home-hero-inner {
+        flex-direction: column;
+        text-align: center;
     }
-
-    .hero h1 {
-        font-size: 38px;
+ 
+    .home-hero-text {
+        max-width: 100%;
+    }
+ 
+    .home-hero-btn {
+        justify-content: center;
+    }
+ 
+    .home-hero-visual {
+        max-width: 100%;
+        height: 320px;
+    }
+ 
+    .home-features {
+        grid-template-columns: repeat(2, 1fr);
+        transform: translateY(20px);
+    }
+ 
+    .kategori-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+ 
+    .produk-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 
     /* DASHBOARD CONTENT */
@@ -1916,12 +2255,55 @@ NAVBAR
 @media (max-width: 575.98px) {
 
     /* HERO */
-    .hero {
-        padding: 16px;
+    .home-hero {
+        padding: 36px 16px 0;
     }
-
-    .hero h1 {
+ 
+    .home-hero-text h1 {
         font-size: 26px;
+    }
+ 
+    .home-hero-text p {
+        font-size: 13px;
+    }
+ 
+    .home-hero-visual {
+        height: 260px;
+        transform: scale(0.8);
+        transform-origin: bottom center;
+    }
+ 
+    .home-features {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        transform: translateY(16px);
+        gap: 16px;
+    }
+ 
+    .home-section {
+        padding: 36px 16px 0;
+    }
+ 
+    .kategori-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+ 
+    .kategori-card {
+        padding: 14px 10px;
+    }
+ 
+    .produk-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+ 
+    .produk-nama {
+        font-size: 12px;
+    }
+ 
+    .produk-harga {
+        font-size: 12px;
     }
 
     /* LOGIN */
