@@ -10,6 +10,17 @@ if (isset($_GET['terima']) && is_numeric($_GET['terima'])) {
     if (mysqli_num_rows($cek) > 0) {
         mysqli_query($koneksi, "UPDATE pesanan SET status='selesai'
             WHERE id_pesanan='$id_pesanan'");
+        
+        mysqli_query($koneksi, "
+            UPDATE produk p
+            JOIN (
+                SELECT dp.id_produk, SUM(dp.jumlah_produk) AS total
+                FROM detail_pesanan dp
+                WHERE dp.id_pesanan = '$id_pesanan'
+                GROUP BY dp.id_produk
+            ) AS ringkasan ON ringkasan.id_produk = p.id_produk
+            SET p.total_terjual = p.total_terjual + ringkasan.total
+        ");
     }
     header("Location: index.php?page=pembeli/riwayat-pesanan");
     exit;

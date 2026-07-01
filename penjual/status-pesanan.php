@@ -5,6 +5,18 @@ if (isset($_POST['update-status'])){
 
     mysqli_query($koneksi, "UPDATE pesanan SET status='$status' WHERE id_pesanan='$id'");
 
+    if ($status === 'selesai') {
+        mysqli_query($koneksi, "UPDATE produk p
+            JOIN (
+                SELECT dp.id_produk, SUM(dp.jumlah_produk) A total
+                FROM detail_pesanan dp
+                WHERE dp.id_pesanan = '$id'
+                GROUP BY dp.id_produk
+            ) AS ringkasan ON ringkasan.id_produk = p.id_produk
+            SET p.total_terjual = p.total_terjual + ringkasan.total
+        ");
+    }
+
     echo "
     <script>
         alert('Status pesanan berhasil diperbarui');
