@@ -1898,6 +1898,79 @@ NAVBAR
 .ap-empty-sub  { font-size: 12px; color: #94a3b8; margin-top: 4px; }
 
 /* ============================================================
+   CONTACT PAGE
+============================================================ */
+
+.ct-page     { max-width: 600px; margin: 0 auto; padding: 24px 0; font-family: 'Poppins', sans-serif; }
+.ct-header   { margin-bottom: 24px; }
+.ct-title    { font-size: 20px; font-weight: 600; color: #1a2332; }
+.ct-subtitle { font-size: 13px; color: #64748b; margin-top: 3px; }
+
+/* Alert */
+.ct-alert {
+    display: flex; align-items: flex-start; gap: 10px;
+    border-radius: 12px; padding: 14px 16px;
+    margin-bottom: 16px; font-size: 13px; line-height: 1.6;
+}
+.ct-alert-success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; }
+.ct-alert-error   { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; }
+.ct-alert-icon    { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+/* Card */
+.ct-card        { background: #fff; border-radius: 16px; border: 1px solid #e8edf2; overflow: hidden; }
+.ct-card-header { display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-bottom: 1px solid #f1f5f9; }
+.ct-icon        { width: 32px; height: 32px; border-radius: 9px; background: #dcfce7; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.ct-card-title  { font-size: 14px; font-weight: 600; color: #1a2332; }
+.ct-card-body   { padding: 20px; }
+
+/* Form */
+.ct-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.ct-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+.ct-field:last-child { margin-bottom: 0; }
+.ct-label { font-size: 12px; font-weight: 600; color: #374151; }
+
+.readonly-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 10px; font-weight: 600; color: #94a3b8;
+    background: #f1f5f9; padding: 2px 7px; border-radius: 20px; margin-left: 6px;
+    vertical-align: middle;
+}
+.ct-input, .ct-textarea {
+    padding: 10px 14px; border-radius: 10px; border: 1.5px solid #e2e8f0;
+    font-size: 13px; font-family: inherit; color: #1a2332;
+    background: #fafbfc; outline: none; transition: border-color .15s; width: 100%;
+}
+.ct-input:focus, .ct-textarea:focus { border-color: #16a34a; background: #fff; }
+.ct-input[readonly] {
+    background: #f1f5f9; color: #64748b;
+    cursor: not-allowed; border-color: #e2e8f0 !important;
+}
+.ct-textarea { resize: vertical; min-height: 120px; }
+.ct-hint     { font-size: 11px; color: #94a3b8; margin-top: 3px; }
+.ct-char     { font-size: 11px; color: #94a3b8; text-align: right; margin-top: 3px; }
+.ct-char.over{ color: #dc2626; }
+
+/* Footer */
+.ct-footer  {
+    display: flex; align-items: center; justify-content: flex-end; gap: 10px;
+    padding: 14px 20px; border-top: 1px solid #f1f5f9; background: #fafbfc;
+}
+.btn-back   {
+    padding: 10px 16px; border-radius: 10px; border: 1.5px solid #e2e8f0;
+    background: #fff; color: #64748b; font-size: 13px; font-weight: 500;
+    cursor: pointer; font-family: inherit; text-decoration: none;
+    display: inline-flex; align-items: center;
+}
+.btn-send   {
+    display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px;
+    border-radius: 10px; border: none; background: #16a34a; color: #fff;
+    font-size: 13px; font-weight: 600; font-family: inherit;
+    cursor: pointer; transition: all .15s;
+}
+.btn-send:hover    { background: #15803d; }
+.btn-send:disabled { background: #86efac; cursor: not-allowed; }
+
+/* ============================================================
    FOOTER
 ============================================================ */
 .footer-umkm {
@@ -2382,4 +2455,10 @@ NAVBAR
     /* NONAKTIFKAN UMKM & DAFTAR UMKM - ADMIN */
     .stat-row  { grid-template-columns: 1fr; }
     .mc-foot   { flex-direction: column; }
+
+    /* CONTACT PAGE */
+    .ct-grid    { grid-template-columns: 1fr; }
+    .ct-footer  { flex-direction: column-reverse; }
+    .btn-back, .btn-send { width: 100%; justify-content: center; }
+
 }

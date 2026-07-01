@@ -45,8 +45,9 @@ $current_page = $_GET['page'] ?? 'home';
                 <a href="index.php?page=dashboard"                        class="nav-link-umkm <?= in_array($current_page, ['penjual/dashboard']) ? 'active' : '' ?>">Dashboard</a>
                 <a href="index.php?page=products-admin"                   class="nav-link-umkm <?= $current_page === 'products-admin'                   ? 'active' : '' ?>">Kelola Produk</a>
                 <a href="index.php?page=penjual/daftar-pesanan"           class="nav-link-umkm <?= $current_page === 'penjual/daftar-pesanan'           ? 'active' : '' ?>">Pesanan</a>
-                <a href="index.php?page=penjual/verif-pembayaran"    class="nav-link-umkm <?= $current_page === 'penjual/verif-pembayaran'         ? 'active' : '' ?>">Pembayaran</a>
+                <a href="index.php?page=penjual/verif-pembayaran"         class="nav-link-umkm <?= $current_page === 'penjual/verif-pembayaran'         ? 'active' : '' ?>">Pembayaran</a>
                 <a href="index.php?page=penjual/status-pesanan"           class="nav-link-umkm <?= $current_page === 'penjual/status-pesanan'           ? 'active' : '' ?>">Status Pesanan</a>
+                <a href="index.php?page=contact"                          class="nav-link-umkm <?= $current_page === 'contact'                          ? 'active' : '' ?>">Hubungi Admin</a>
                 <a href="logout.php" class="nav-link-umkm nav-link-danger">Logout</a>
 
             <?php else: /* pembeli */ ?>
@@ -66,6 +67,7 @@ $current_page = $_GET['page'] ?? 'home';
                     <?php endif; ?>
                 </a>
 
+                <a href="index.php?page=contact" class="nav-link-umkm <?= $current_page === 'contact' ? 'active' : '' ?>">Hubungi Admin</a>
                 <a href="logout.php" class="nav-link-umkm nav-link-danger">Logout</a>
 
             <?php endif; ?>
