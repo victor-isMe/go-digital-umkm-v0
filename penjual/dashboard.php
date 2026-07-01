@@ -345,7 +345,7 @@ $total_pending = mysqli_num_rows(
                         </a>
                     </li>
                     <li>
-                        <a class="action-item" href="index.php?page=pembayaran" style="--action-icon-bg:#e0f2fe; --action-icon-color:#0ea5e9;">
+                        <a class="action-item" href="index.php?page=penjual/verif-pembayaran" style="--action-icon-bg:#e0f2fe; --action-icon-color:#0ea5e9;">
                             <div class="action-item-icon">
                                 <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                             </div>

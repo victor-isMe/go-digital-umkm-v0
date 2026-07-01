@@ -1,28 +1,24 @@
 <?php
-require_once 'config/database.php';
 
+$id_penjual = $_SESSION["id"];
 $id = $_GET['id'];
-$result = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id'");
-$row = mysqli_fetch_array($result);
+$result = mysqli_query($koneksi, "SELECT * FROM produk WHERE id_produk='$id' AND id_penjual='$id_penjual'");
+$row = mysqli_fetch_assoc($result);
+
+if (!$row) {
+    echo "<script>alert('Produk tidak ditemukan atau Anda tidak memiliki izin untuk mengedit produk ini.');</script>";
+    echo "<script>location='index.php?page=products-admin'</script>";
+    exit;
+}
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Produk</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body>
     <div>
-        <a href="index.php?page=products-admin" class="btn btn-danger">&lt;Kembali</a>
-        <h1 class="text-center">Edit Produk</h1>
+        <a href="index.php?page=products-admin" class="btn-dashboard-solid">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>    Kembali
+        </a>
     </div>
     <form class="form" method="POST" enctype="multipart/form-data">
-        <h2>Edit Produk</h2>
+        <h2 class="text-center">Edit Produk</h2>
 
         <label>Nama Produk</label>
         <input type="text" name="name" value="<?= $row['nama']; ?>">
@@ -76,5 +72,3 @@ $row = mysqli_fetch_array($result);
         }
     }
     ?>
-</body>
-</html>

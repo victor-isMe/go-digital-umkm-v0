@@ -5,6 +5,10 @@ $produk = mysqli_fetch_assoc($query);
 ?>
 
 <div class="container mt-5">
+    <a href="index.php?page=produk" class="btn-dashboard-ghost">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Kembali ke halaman produk
+    </a>
     <div class="card shadow p-4">
         <div class="row">
             <div class="col-md-5 text-center">
