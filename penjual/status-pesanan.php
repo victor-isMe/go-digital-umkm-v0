@@ -8,7 +8,7 @@ if (isset($_POST['update-status'])){
     if ($status === 'selesai') {
         mysqli_query($koneksi, "UPDATE produk p
             JOIN (
-                SELECT dp.id_produk, SUM(dp.jumlah_produk) A total
+                SELECT dp.id_produk, SUM(dp.jumlah_produk) AS total
                 FROM detail_pesanan dp
                 WHERE dp.id_pesanan = '$id'
                 GROUP BY dp.id_produk
