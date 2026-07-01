@@ -116,7 +116,6 @@ try {
     $_SESSION['contact_success'] = "Pesan berhasil dikirim! Admin akan membalas ke email kamu.";
 
 } catch (Exception $e) {
-    // Email gagal tapi data sudah tersimpan di DB — jangan block user
     $_SESSION['contact_success'] = "Pesan tersimpan. (Notifikasi email sedang dalam gangguan.)";
     // Log error untuk developer
     error_log("[Contact PHPMailer Error] " . $mail->ErrorInfo);
