@@ -47,7 +47,7 @@ if (!empty($errors)) {
 }
 
 // ── Kirim email ke admin via PHPMailer ────────────────────────
-$ADMIN_EMAIL = 'muhammadfaizniwansya@student.uns.ac.id';
+$ADMIN_EMAIL = 'rizayulianarahmawati07@gmail.com';
 
 try {
     $mail = createMailer();
