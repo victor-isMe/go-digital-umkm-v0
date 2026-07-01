@@ -54,7 +54,7 @@ try {
 
     // Pengirim — pakai email SMTP, bukan email user
     // (Gmail tidak izinkan From selain akun SMTP kamu)
-    $mail->setFrom('muhammadfaizniwansyah23@gmail.com', 'Sistem Toko UMKM');
+    $mail->setFrom('muhammadfaizniwansyah23@gmail.com', 'Platform Go Digital UMKM');
 
     // Reply-To = email user, agar admin bisa balas langsung
     $mail->addReplyTo($email_user, $nama);
