@@ -1971,6 +1971,150 @@ NAVBAR
 .btn-send:disabled { background: #86efac; cursor: not-allowed; }
 
 /* ============================================================
+   DETAIL PENJUAL
+============================================================ */
+
+/* ── BASE ─────────────────────────────────────────────────────── */
+.dp-wrap { font-family: 'Poppins', sans-serif; background: #f1f5f9; min-height: 100vh; color: #1a2332; }
+
+/* ── HERO ─────────────────────────────────────────────────────── */
+.dp-hero {
+    background: linear-gradient(135deg, #15803d, #16a34a);
+    padding: 28px 28px 56px;
+}
+.dp-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: rgba(255,255,255,.85); font-size: 13px; text-decoration: none;
+    margin-bottom: 20px; font-weight: 500; background: none;
+    border: none; cursor: pointer; font-family: inherit; transition: color .15s;
+}
+.dp-back:hover { color: #fff; }
+.dp-back svg {
+    width: 16px; height: 16px; stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.dp-hero-inner { display: flex; align-items: center; gap: 18px; }
+.dp-avatar {
+    width: 72px; height: 72px; border-radius: 16px; background: #fff;
+    border: 3px solid rgba(255,255,255,.3); object-fit: cover;
+    flex-shrink: 0; display: flex; align-items: center;
+    justify-content: center; font-size: 28px; color: #16a34a;
+}
+.dp-hero-info  { flex: 1; min-width: 0; }
+.dp-toko-name  {
+    font-size: 22px; font-weight: 700; color: #fff;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.dp-owner      { font-size: 13px; color: rgba(255,255,255,.8); margin-top: 4px; }
+.dp-badges     { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.dp-badge      {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;
+    background: rgba(255,255,255,.2); color: #fff; border: 1px solid rgba(255,255,255,.25);
+}
+
+/* ── PAGE BODY ────────────────────────────────────────────────── */
+.dp-page {
+    max-width: 900px; margin: -36px auto 0;
+    padding: 0 20px 40px; position: relative;
+}
+
+/* ── STAT CARDS ───────────────────────────────────────────────── */
+.dp-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+.dp-stat  { background: #fff; border-radius: 12px; border: 1px solid #e8edf2; padding: 14px 16px; text-align: center; }
+.dp-stat-val   { font-size: 20px; font-weight: 700; color: #16a34a; }
+.dp-stat-label { font-size: 11px; color: #64748b; margin-top: 3px; font-weight: 500; }
+
+/* ── LAYOUT GRID ──────────────────────────────────────────────── */
+.dp-grid { display: grid; grid-template-columns: 1fr 300px; gap: 16px; align-items: start; }
+
+/* ── CARD ─────────────────────────────────────────────────────── */
+.dp-card { background: #fff; border-radius: 14px; border: 1px solid #e8edf2; overflow: hidden; margin-bottom: 16px; }
+.dp-card:last-child { margin-bottom: 0; }
+.dp-card-header {
+    display: flex; align-items: center; gap: 9px;
+    padding: 13px 18px; border-bottom: 1px solid #f1f5f9;
+}
+.dp-card-icon  {
+    width: 28px; height: 28px; border-radius: 7px; background: #dcfce7;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; flex-shrink: 0;
+}
+.dp-card-title { font-size: 13px; font-weight: 600; color: #1a2332; }
+.dp-card-body  { padding: 16px 18px; }
+
+/* ── INFO ROWS ────────────────────────────────────────────────── */
+.dp-info-row {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0; border-bottom: 1px solid #f8fafc; font-size: 13px;
+}
+.dp-info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.dp-info-label { color: #64748b; font-size: 11px; font-weight: 600; width: 90px; flex-shrink: 0; padding-top: 1px; }
+.dp-info-val   { color: #1a2332; flex: 1; line-height: 1.5; }
+
+/* ── PRODUK GRID ──────────────────────────────────────────────── */
+.dp-produk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dp-produk-card {
+    border: 1px solid #e8edf2; border-radius: 10px; overflow: hidden;
+    transition: border-color .15s, box-shadow .15s; text-decoration: none; display: block;
+}
+.dp-produk-card:hover { border-color: #86efac; box-shadow: 0 2px 12px rgba(22,163,74,.1); }
+.dp-produk-card.habis { opacity: .55; pointer-events: none; }
+
+.dp-produk-img {
+    width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+    background: #f1f5f9; display: block;
+}
+.dp-produk-img-placeholder {
+    width: 100%; aspect-ratio: 1 / 1; background: #f1f5f9;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+}
+.dp-produk-info  { padding: 9px 10px; }
+.dp-produk-nama  { font-size: 12px; font-weight: 600; color: #1a2332; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dp-produk-harga { font-size: 12px; font-weight: 700; color: #16a34a; margin-top: 3px; }
+.dp-produk-stok  { font-size: 10px; color: #94a3b8; margin-top: 2px; }
+.dp-produk-stok.habis { color: #ef4444; }
+
+.dp-habis-tag {
+    display: inline-block; background: #fef2f2; color: #dc2626;
+    font-size: 9px; font-weight: 700; padding: 2px 6px;
+    border-radius: 4px; margin-top: 3px;
+}
+
+/* ── METODE BAYAR ─────────────────────────────────────────────── */
+.dp-metode-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 11px; background: #f8fafc;
+    border-radius: 9px; border: 1px solid #e8edf2; margin-bottom: 8px;
+}
+.dp-metode-item:last-child { margin-bottom: 0; }
+.dp-metode-icon { font-size: 20px; flex-shrink: 0; }
+.dp-metode-provider { font-size: 12px; font-weight: 600; color: #1a2332; }
+.dp-metode-detail   { font-size: 11px; color: #64748b; margin-top: 1px; }
+
+/* ── TOMBOL AKSI ──────────────────────────────────────────────── */
+.btn-contact {
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    width: 100%; padding: 11px; border-radius: 10px; border: none;
+    background: #16a34a; color: #fff; font-size: 13px; font-weight: 600;
+    font-family: inherit; cursor: pointer; text-decoration: none;
+    transition: all .15s; margin-top: 4px;
+}
+.btn-contact:hover { background: #15803d; }
+.btn-browse {
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    width: 100%; padding: 11px; border-radius: 10px;
+    border: 1.5px solid #e2e8f0; background: #fff; color: #475569;
+    font-size: 13px; font-weight: 500; font-family: inherit;
+    cursor: pointer; text-decoration: none; transition: all .15s; margin-top: 8px;
+}
+.btn-browse:hover { border-color: #16a34a; color: #15803d; background: #f0fdf4; }
+
+/* ── EMPTY STATE ──────────────────────────────────────────────── */
+.dp-empty { padding: 28px; text-align: center; color: #94a3b8; font-size: 13px; }
+
+/* ============================================================
    FOOTER
 ============================================================ */
 .footer-umkm {
@@ -2312,6 +2456,15 @@ NAVBAR
     .kp-table-wrap  { display: none; }
     .kp-mobile-list { display: block; }
  
+    /* DETAIL PENJUAL */
+    .dp-hero       { padding: 20px 14px 48px; }
+    .dp-page       { padding: 0 12px 28px; margin-top: -28px; }
+    .dp-toko-name  { font-size: 18px; }
+    .dp-avatar     { width: 56px; height: 56px; font-size: 22px; border-radius: 12px; }
+    .dp-grid       { grid-template-columns: 1fr; }
+    /* Di mobile: kolom kanan naik ke atas produk */
+    .dp-col-right  { order: -1; }
+
     /* FOOTER */
     .footer-inner {
         flex-direction: column;
@@ -2461,4 +2614,7 @@ NAVBAR
     .ct-footer  { flex-direction: column-reverse; }
     .btn-back, .btn-send { width: 100%; justify-content: center; }
 
+    /* DETAIL PENJUAL */
+    .dp-stats      { grid-template-columns: 1fr 1fr; }
+    .dp-produk-grid{ grid-template-columns: 1fr 1fr; }
 }

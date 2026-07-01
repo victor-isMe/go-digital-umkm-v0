@@ -4,7 +4,7 @@ session_start();
 
 $page = $_GET['page'] ?? 'home';
 
-$allowed_pages = ['dashboard', 'home', 'produk', 'form', 'login', 'products-admin', 'register', 'edit-produk', 'admin/daftar-umkm', 'admin/nonaktifkan-umkm', 'pembeli/keranjang', 'pembeli/checkout', 'pembeli/riwayat-pesanan', 'penjual/status-pesanan', 'penjual/daftar-pesanan', 'produk/detail', 'penjual/verif-pembayaran', 'contact'];
+$allowed_pages = ['dashboard', 'home', 'produk', 'form', 'login', 'products-admin', 'register', 'edit-produk', 'admin/daftar-umkm', 'admin/nonaktifkan-umkm', 'pembeli/keranjang', 'pembeli/checkout', 'pembeli/riwayat-pesanan', 'penjual/status-pesanan', 'penjual/daftar-pesanan', 'produk/detail', 'penjual/verif-pembayaran', 'contact', 'detail-penjual'];
 
 $sequre_pages = ['dashboard', 'form', 'products-admin', 'edit-produk', 'admin/daftar-umkm','admin/nonaktifkan-umkm', 'pembeli/keranjang', 'pembeli/checkout', 'pembeli/riwayat-pesanan', 'penjual/status-pesanan', 'penjual/daftar-pesanan', 'penjual/verif-pembayaran', 'contact'];
 

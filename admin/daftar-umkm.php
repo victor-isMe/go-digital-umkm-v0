@@ -81,7 +81,7 @@ while ($r = mysqli_fetch_assoc($query)) {
                         <th>Pemilik</th>
                         <th>Produk</th>
                         <th>Status</th>
-                        <!-- <th>Detail</th> -->
+                        <th>Detail</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
@@ -116,6 +116,11 @@ while ($r = mysqli_fetch_assoc($query)) {
                     </td>
 
                     <!-- <td></td> -->
+                    <td>
+                        <a href="index.php?page=detail-penjual&id=<?= $data['id_penjual'] ?>" class="btn-detail">
+                            Detail
+                        </a>
+                    </td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -156,7 +161,11 @@ while ($r = mysqli_fetch_assoc($query)) {
                     <span class="produk-count <?= $jml === 0 ? 'zero' : '' ?>"><?= $jml ?> produk</span>
                 </div>
 
-                <!-- <div class="mc-foot"></div> -->
+                <div class="mc-foot">
+                    <a href="index.php?page=detail-penjual&id=<?= $data['id_penjual'] ?>" class="btn-detail">
+                        Detail
+                    </a>
+                </div>
             </div>
         <?php endforeach; ?>
         </div>
